@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.sectionLeft {
+    float: left;
+    width: 25%;
+    
+}
+
+.sectionRigth {
+    float: right;
+    width: 75%;
+}
+
+.gameDisplay {
+    background-color: rgb(80, 54, 54);
+    max-height: 60vh;
+}
+
+.availableBlocks {
+    background-color: rgb(73, 73, 73);
+    min-height: 100vh;
+    min-width: 100%;    
+}
+
+
+.selectedBlocks {
+    background-color: darkslategrey;
+    min-width: 100%;
+    min-height: 45vh;
+}

@@ -1,0 +1,32 @@
+.holder{
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+}
+
+.blocksHolder{
+    background-color: white;
+    width: 130px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.block{
+    height: 80px;
+    width: 110px;
+    background-color: aqua;
+    text-align: center;
+    font-size:smaller;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-weight: 600;
+}
