@@ -1,5 +1,12 @@
+import { createBlocks,executeCode } from './GameLogic.js';
+
+createBlocks();
+
+
 const blocks = document.querySelectorAll('.block');
 const dropzones = document.querySelectorAll('.dropzone');
+
+document.querySelector('.executeCode').addEventListener('click', executeCode);
 
 blocks.forEach(block => {
     block.addEventListener('dragstart', dragstart)
@@ -14,16 +21,10 @@ dropzones.forEach(dropzone => {
     dropzone.addEventListener('drop', drop)
 });
 
-function executeCode() {
-    //Get all the blocksHolders of the selectedBlocks div
-    const blocksHolders = document.querySelector('.selectedBlocks').children;
-    for (let index = 0; index < blocksHolders.length; index++) {
-        const element = blocksHolders[index].children ? blocksHolders[index].children[0] : null;
-        if(element && element.tagName === "P"){
-            log(element.classList)
-        }
-    }
-}
+
+
+
+
 
 //================================== BLOCK LISTENERS ========================================================//
 function dragstart() {
@@ -46,7 +47,6 @@ function dragover() {
     const blockBeingDragged = document.querySelector('.is-dragging')
 
     if (this.children.length === 0) {
-
         this.appendChild(blockBeingDragged);
     }
 
