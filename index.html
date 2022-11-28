@@ -6,13 +6,14 @@
     <link rel="stylesheet" href="CssFiles/main.css">
     <link rel="stylesheet" href="CssFiles/blocks.css">
     <link rel="stylesheet" href="CssFiles/generalView.css">
+    <link rel="stylesheet" href="CssFiles/utilsBar.css">
 </head>
 
 <body>
     <!-------------LEFT------------------------------->
-    <div class="sectionLeft" >
+    <div class="sectionLeft">
         <div class="availableBlocks holder">
-            
+
         </div>
     </div>
     <!-------------RIGHT------------------------------->
@@ -22,6 +23,18 @@
                 <img src="Assets/GameController.png">
             </div>
         </center>
+        <div class="toolsBarHolder">
+            <div class="tools">
+                <div class="toolBarButton restartLevel">
+                    <span class="tooltiptext">Resetar Nivel</span>
+                    <i class="fa fa-solid fa-reply" style="color: white;"></i>
+                </div>
+                <div class="toolBarButton executeCode">
+                    <span class="tooltiptext">Executar Código</span>
+                    <i class="fa fa-solid fa-play" style="color: white;"></i>
+                </div>
+            </div>
+        </div>
         <div class="selectedBlocks holder">
             <div class="blocksHolder dropzone"></div>
             <div class="blocksHolder dropzone"></div>
@@ -40,15 +53,11 @@
             <div class="blocksHolder dropzone"></div>
             <div class="blocksHolder dropzone"></div>
             <div class="blocksHolder dropzone"></div>
-            <div class="blocksHolder dropzone"></div>
-            <div class="blocksHolder dropzone"></div>
-            <div class="blocksHolder dropzone"></div>
-            <div class="blocksHolder">
-                <button class="executeCode">Teste</button>
-            </div>
+            <div class="blocksHolder"></div>
             <div></div>
         </div>
     </div>
+    <script src="https://kit.fontawesome.com/22b2be0226.js" crossorigin="anonymous"></script>
     <script type="module" src="Scripts/main.js" defer>  </script>
 </body>
 

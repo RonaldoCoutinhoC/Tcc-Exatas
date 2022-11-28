@@ -22,6 +22,7 @@
 .availableBlocks {
     background-color: rgb(73, 73, 73);
     min-height: 100vh;
+    max-height:none;
     min-width: 100%;    
 }
 
@@ -29,5 +30,9 @@
 .selectedBlocks {
     background-color: darkslategrey;
     min-width: 100%;
-    min-height: 45vh;
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+

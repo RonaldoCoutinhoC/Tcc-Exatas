@@ -1,4 +1,24 @@
 import { getBlock } from '../Blocks/BlocksDefinition.js';
+import { util } from '../../Utils/debugUtils.js';
+export function getLevelSuccessValidator(index,codeString){
+
+    let treatedCode = treatCodeString(codeString);
+    const LEVEL_VALIDATOR = {
+        1: ()=>{
+            let bait;
+            try {
+                eval(treatedCode);
+            } catch (e) { }
+        
+            if (bait === "bait1") {
+                return true;
+            }
+            return false;
+        }
+    };
+
+    return LEVEL_VALIDATOR[index]();
+}
 
 
 export function getLevelInfo(levelIndex){
@@ -15,10 +35,21 @@ export function getLevelInfo(levelIndex){
                 getBlock({"identifier": "DIFFERENT","quantity": 1}),
                 getBlock({"identifier": "ASSIGN","quantity": 1}),
             ],
-            requirement: null 
+            requirement: null,
+            numberOfEmptySpaces: 5
+
         }
     }
     return LEVELS_INFO[levelIndex];
 }
+
+function treatCodeString(string){
+
+    
+    string = string.replaceAll("---","'");
+
+    return string;
+}
+
 
 
