@@ -18,6 +18,10 @@
     border-radius: 10px;
 }
 
+.functionBlocksHolder{
+    background-color: rgb(63, 63, 63) !important;
+}
+
 .block{
     height: 80px;
     width: 110px;
