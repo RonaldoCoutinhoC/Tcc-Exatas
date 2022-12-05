@@ -1,5 +1,5 @@
 import { getBlock } from '../Blocks/BlocksDefinition.js';
-import { util } from '../../Utils/debugUtils.js';
+
 export function getLevelSuccessValidator(index,codeString){
 
     let treatedCode = treatCodeString(codeString);
@@ -45,7 +45,8 @@ export function getLevelInfo(levelIndex){
 
 function treatCodeString(string){
 
-    
+    console.log(string);
+    string = string.replaceAll("functBlock","");    
     string = string.replaceAll("---","'");
 
     return string;

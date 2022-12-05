@@ -1,5 +1,3 @@
-
-
 const naturalBlocks = {
     //name_br, name_en, name_logical, className, color
     "IF": getBlockObject("SE", "IF", "IF", "if", getCollorBasedOnBlockType("condition")),
@@ -29,6 +27,10 @@ export function getBlock(blockToGet) {
     return returnBlock;
 }
 
+export function getFunctionBlock(className) {
+    return getBlockObject("Função1", "Function1", "Function1", className, getCollorBasedOnBlockType("function"));
+}
+
 function getBlockObject(name_br, name_en, name_logical, className, color) {
     return {
         "name-pt-br": name_br,
@@ -47,6 +49,7 @@ function getCollorBasedOnBlockType(type) {
         "loop": "rgb(119, 77, 203)",//Magenta
         "condition": "rgb(255, 171, 25)",//Orange
         "variable": "rgb(0, 255, 255)", //Cyan
+        "function": "rgb(125 125 125)", //Grey
     }
 
     return colors[type];

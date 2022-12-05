@@ -1,3 +1,5 @@
 import { startGame } from './Control/GameEngine.js';
 
-startGame();
+import {startLevel} from "./Controller.js"
+startLevel(1);
+//startGame();

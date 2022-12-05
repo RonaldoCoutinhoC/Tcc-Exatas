@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Scripts",
+    "\\Scripts\\Control",
+    "\\Scripts\\Model",
+    "\\Scripts\\Model\\Blocks",
+    "\\Scripts\\Model\\Buttons",
+    "\\Scripts\\Model\\Levels",
+    "\\Scripts\\Utils",
+    "\\Scripts\\View"
+  ],
+  "SelectedNode": "\\Scripts\\Model\\Levels\\LevelGenerator.js",
+  "PreviewInSolutionExplorer": false
+}

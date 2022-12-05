@@ -2,7 +2,6 @@ import { getLevelSuccessValidator } from '../Model/Levels/LevelDefinition.js'
 import { getCurrentLevel } from './GameEngine.js';
 
 
-
 export function executeCode() {
     //Get all the blocksHolders of the selectedBlocks div
     const blocksHolders = document.querySelector('.selectedBlocks').children;

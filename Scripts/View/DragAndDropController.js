@@ -17,9 +17,6 @@ export function startDragAndDropControl(){
     });
 }
 
-
-
-
 function dragstart() {
     //In this contex "this" means the block because this function is called by the block in line 5
     this.classList.add('is-dragging');

@@ -1,20 +1,12 @@
-import { generateLevel } from '../Model/Levels/LevelGenerator.js';
+import { generateLevel,setUtilsButtons } from '../Model/Levels/LevelGenerator.js';
 import { createView } from '../View/ViewController.js';
-import {executeCode} from '../Control/BlockConverter.js'
 
 let currentLevel = 1;
-
-
+export let selectedLanguagekey = defineLanguage("logical");
+export let selectedTextLanguageKey = defineLanguage("br");
 
 export function startGame(){
-
-    document.querySelector('.executeCode').addEventListener('click', executeCode);
-    document.querySelector('.restartLevel').addEventListener('click', loadLevel);
-    document.querySelector('.createNewFunction').addEventListener('click', createNewFunction);
- 
-
-    generateLevel(currentLevel);
-    createView();
+    loadLevel()
 }
 
 export function getCurrentLevel(){
@@ -30,14 +22,25 @@ export function loadLevel(){
     createView();
 }
 
+function defineLanguage(languange){
+    let languages = {
+        "en": "name-en",
+        "br": "name-pt-br",
+        "logical": "name-logical"
+    };
 
-function createNewFunction(){
+    return languages[languange];
+}
+
+export function getCreateFunctionView(){
     let selectedBlocksDiv = '';
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 6; index++) {
         selectedBlocksDiv += '<div class="functionBlocksHolder blocksHolder dropzone"></div>';
     }
     
     document.querySelector('.selectedBlocks').innerHTML = selectedBlocksDiv;
     createView();
+    setUtilsButtons("creatingFunctions");
+
 }
 
