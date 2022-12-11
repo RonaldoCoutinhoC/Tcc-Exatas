@@ -1,5 +1,4 @@
-import { startGame } from './Control/GameEngine.js';
+import {startGame} from "./Controller.js"
 
-import {startLevel} from "./Controller.js"
-startLevel(1);
-//startGame();
+
+startGame();

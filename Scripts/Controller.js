@@ -1,13 +1,9 @@
-import { levels, BUTTONS, Button } from "./Model.js";
-import { startDragAndDropControl } from "./View.js";
-
-
-export function startLevel(levelIndex){
-    levels[levelIndex].setAvailableBlocksDiv();
-    levels[levelIndex].setSelectedBlocksDiv();
-    Button.setButtons(BUTTONS);
-    startDragAndDropControl();
+import { Button } from "./Model/Button.js";
+import { Level } from "./Model/Level.js";
+function startGame(){ 
+    Level.startLevel(1);
+    Button.setButtons(Button.MAIN_MENU_BUTTONS);
 }
 
-
+export { startGame };
 
