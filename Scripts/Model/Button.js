@@ -12,7 +12,9 @@ class Button {
     static MAIN_MENU_BUTTONS = [
         new Button("Recomeçar o nível atual", "restartLevel", "fa fa-solid fa-backward"),
         new Button("Criar uma nova função!", "createNewFunction", "fa fa-solid fa-plus"),
+        new Button("Ajuda!", "displayHelp", "fa-solid fa-question"),
         new Button("Execute o código!", "executeCode", "fa fa-solid fa-play"),
+        
     ]
 
     static CREATING_FUNCTION_BUTTONS = [
@@ -45,6 +47,11 @@ class Button {
         document.querySelector('.' + buttonClassName).addEventListener('click', BUTTONS_FUNCTIONS[buttonClassName] || teste);
     }
 
+    static setBlockButtonFunction(buttonClassName) {
+        document.querySelectorAll('.' + buttonClassName).forEach(elementInList=>{
+            elementInList.addEventListener('click', BUTTONS_FUNCTIONS[buttonClassName] || teste);
+        });
+    }
 
 }
 
@@ -65,6 +72,7 @@ const BUTTONS_FUNCTIONS = {
 
         if (Level.LEVEL_VALIDATORS[Level.CURRENT_LEVEL_IDENTIFIER](Level.treatCodeString(codeString))) {
             alert("Sucesso");
+            Level.startLevel(Level.CURRENT_LEVEL + 1);
         } else {
             alert("Falha")
         }
@@ -95,30 +103,44 @@ const BUTTONS_FUNCTIONS = {
         const blocksHolders = document.querySelector('.selectedBlocks').children;
         let functionClass = '';
 
+        
+        let blocksCounter = 0;
         for (let index = 0; index < blocksHolders.length; index++) {
             const element = blocksHolders[index].children ? blocksHolders[index].children[0] : null;
             if (element && element.tagName === "P") {
+                blocksCounter++;
                 functionClass += 'functBlock' + element.classList[1];
             }
         }
 
-        if (functionClass.length === 0) {
+        if (blocksCounter < 2) {
+            alert("Funções vazias ou com somente um unico bloco são inválidas!");
             BUTTONS_FUNCTIONS["returnToGame"]();
             return;
         }
 
         let functionName = prompt("Funciton Name: ");
-
-        //const availableBlocksHolders = document.querySelector('.availableBlocks').innerHTML;
         let block = new Block(functionName, functionClass, "function");
+
         Level.loadLevelCurrentState();
         document.querySelector('.availableBlocks').innerHTML += block.htmlElement;
         Level.saveLevelCurrentState();
+
         BUTTONS_FUNCTIONS["returnToGame"]();
+        
+        Button.setButtonFunction('duplicateFunction');
+    },
+    "duplicateFunction": (event) =>{
+        let parentElement = event.srcElement.parentElement;
+        let functionName = parentElement.innerText || parentElement.textContent;
+
+        let block = new Block(functionName, parentElement.classList[1], "function");
+        document.querySelector('.availableBlocks').innerHTML += block.htmlElement;
+        Level.saveLevelCurrentState();
+        BUTTONS_FUNCTIONS["returnToGame"]();
+        Button.setBlockButtonFunction('duplicateFunction');
     }
 }
-
-
 
 export { Button };
 

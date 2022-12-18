@@ -22,6 +22,13 @@ class Level {
         Block.CUSTOM_BLOCKS["VARIABLE_BAIT"],
         Block.CUSTOM_BLOCKS["BAIT1"],
         Block.CUSTOM_BLOCKS["BAIT2"],
+        //new Block("Function Test", "teste", "function"),
+    ];
+
+    static blocksLevel2 = [
+        Block.DEFAULT_BLOCKS["ASSIGN"],
+        Block.CUSTOM_BLOCKS["VARIABLE_BAIT"],
+        Block.CUSTOM_BLOCKS["BAIT1"]
     ];
 
     static LEVEL_VALIDATORS = {
@@ -35,12 +42,21 @@ class Level {
                 return true;
             }
             return false;
+        },
+        level2: (treatedCode) => {
+            let bait;
+            console.log(treatedCode);
+            if (treatedCode === "bait='bait1' bait='bait1' bait='bait1' ") {
+                return true;
+            }
+            return false;
         }
     };
 
     static levels = [
         "",//Level 0 -> Ignore
-        new Level(1, Level.blocksLevel1, Level.LEVEL_VALIDATORS["level1"], 5)
+        new Level(1, Level.blocksLevel1, Level.LEVEL_VALIDATORS["level1"], 5),
+        new Level(1, Level.blocksLevel2, Level.LEVEL_VALIDATORS["level2"], 3)
     ]
 
     static levelCurrentState = {}
@@ -69,7 +85,7 @@ class Level {
     }
 
     static startLevel(levelIndex) {
-
+        console.log(levelIndex)
         let level = Level.levels[levelIndex];
 
         level.setAvailableBlocksDiv();

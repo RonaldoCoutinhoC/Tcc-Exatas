@@ -4,7 +4,7 @@ class Block{
         this.htmlClass = htmlClass;
         this.blockType = blockType;
         this.color = Block.getCollorBasedOnBlockType(blockType);
-        this.htmlElement = this.getBlockHtml();
+        this.htmlElement = blockType === "function" ? this.getBlockFunctionHtml() : this.getBlockHtml();
     }
 
 
@@ -36,6 +36,16 @@ class Block{
             '</div>';
     }
 
+    getBlockFunctionHtml() {
+        return'<div class="blocksHolder dropzone">' +
+        '<p class="block ' + this.htmlClass +
+        '" draggable="true" style="background-color:' + this.color + ';"' +
+        '><i class="blocksButtons duplicateFunction fa-regular fa-clone"></i>' + this.name + '</p>' +
+        '</div>';
+
+        
+    }
+
     static getCollorBasedOnBlockType(blockType) {
         let colors = {
             "logical": "rgb(89, 192, 89)",//Green
@@ -48,8 +58,6 @@ class Block{
         }
         return colors[blockType];
     }
-
-    
 
 }
 
