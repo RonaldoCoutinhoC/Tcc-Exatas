@@ -56,7 +56,7 @@ class Level {
     static levels = [
         "",//Level 0 -> Ignore
         new Level(1, Level.blocksLevel1, Level.LEVEL_VALIDATORS["level1"], 5),
-        new Level(1, Level.blocksLevel2, Level.LEVEL_VALIDATORS["level2"], 3)
+        new Level(2, Level.blocksLevel2, Level.LEVEL_VALIDATORS["level2"], 3)
     ]
 
     static levelCurrentState = {}
