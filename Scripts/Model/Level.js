@@ -1,6 +1,7 @@
 import { Button } from "./Button.js";
 import { Block } from "./Block.js";
 import { View } from "../View.js";
+import { setStartLevelText } from "./HelpText.js";
 class Level {
 
     constructor(index, availableBlocks, scriptValidator, numberOfEmptySpaces) {
@@ -94,6 +95,7 @@ class Level {
         Level.CURRENT_LEVEL_IDENTIFIER = 'level' + levelIndex;
         View.startDragAndDropControl();
         Level.saveLevelCurrentState();
+        setStartLevelText();
     }
 
     setAvailableBlocksDiv() {

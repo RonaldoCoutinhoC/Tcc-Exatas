@@ -1,6 +1,7 @@
 import { Level } from "./Level.js";
 import { View } from "../View.js";
 import { Block } from "./Block.js";
+import { setNextHelpText,setPreviousHelpText } from "./HelpText.js";
 class Button {
     constructor(tooltipText, className, iconHTMLClasses) {
         this.tooltipText = tooltipText;
@@ -20,6 +21,11 @@ class Button {
     static CREATING_FUNCTION_BUTTONS = [
         new Button("Retornar ao jogo!", "returnToGame", "fa fa-solid fa-backward-step"),
         new Button("Salvar Função!", "saveFunction", "fa fa-solid fa-floppy-disk"),
+    ]
+
+    static HELPER_JOSH_BUTTONS = [
+        new Button("Texto anterior", "previousHelpText",  "fa fa-solid fa-chevron-left"),
+        new Button("Proximo texto", "nextHelpText","fa fa-solid fa-chevron-right"),
     ]
 
     getButtonHtml() {
@@ -50,6 +56,20 @@ class Button {
     static setBlockButtonFunction(buttonClassName) {
         document.querySelectorAll('.' + buttonClassName).forEach(elementInList=>{
             elementInList.addEventListener('click', BUTTONS_FUNCTIONS[buttonClassName] || teste);
+        });
+    }
+
+    static setHelperJoshButtons(buttons) {
+        let toolsDiv = '';
+    
+        buttons.forEach(button => {
+            toolsDiv += button.htmlElement;
+        });
+    
+        document.getElementById('helpTextHolderButtons').innerHTML = toolsDiv;
+    
+        buttons.forEach(button => {
+            Button.setButtonFunction(button.className);
         });
     }
 
@@ -139,6 +159,12 @@ const BUTTONS_FUNCTIONS = {
         Level.saveLevelCurrentState();
         BUTTONS_FUNCTIONS["returnToGame"]();
         Button.setBlockButtonFunction('duplicateFunction');
+    },
+    "nextHelpText": () => {
+        setNextHelpText();
+    },
+    "previousHelpText": () => {
+        setPreviousHelpText();
     }
 }
 
