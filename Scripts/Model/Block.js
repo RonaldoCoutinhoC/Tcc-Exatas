@@ -11,6 +11,7 @@ class Block{
     static DEFAULT_BLOCKS = {
         "IF": new Block("IF", "if", "condition"),
         "ELSE": new Block("ELSE", "else", "condition"),
+        "THEN": new Block("THEN", "then", "condition"),
         "EQUALS": new Block("EQUALS (==)", "===","mathematical"),
         "DIFFERENT": new Block("DIFFERENT (!=)","!==","mathematical"),
         "AND": new Block("AND (&&)","&&","logical"),
@@ -20,12 +21,20 @@ class Block{
         "LESSTHEN": new Block("LESS THEN (<)","<","mathematical"),
         "LESSTHENEQUAL": new Block("LESS THEN EQUAL (<=)","<","mathematical"),
         "ASSIGN": new Block("ASSIGN (=)","=","logical"),
+        "WHILE": new Block("WHILE","while","loop"),
+        "DO": new Block("DO","do","loop"),
     }
 
     static CUSTOM_BLOCKS = {
         "VARIABLE_BAIT": new Block("BAIT (Variable)","bait", "variable"),
+        "BAIT": new Block("ISCA","__bait__", "variable"),
         "BAIT1": new Block("FrogFish","---bait1---", "custom"),
         "BAIT2": new Block("SilverFish","---bait2---", "custom"),
+        "PESCAR": new Block("Pescar","getFish-premadeFunction", "premadeFuncition"),
+        "PESCARSALMAO": new Block("Pescar Salmao","getSalmao-premadeFunction", "premadeFuncition"),
+        "PESCARQUALQUER": new Block("Pescar Qualquer","getAnyFish-premadeFunction", "premadeFuncition"),
+        "VALUE10": new Block("VALUE10","__10__", "custom"),
+        "FISHCONT": new Block("PEIXES PESCADOS","__fishCont__", "custom"),
     }
 
     getBlockHtml() {
@@ -41,9 +50,7 @@ class Block{
         '<p class="block ' + this.htmlClass +
         '" draggable="true" style="background-color:' + this.color + ';"' +
         '><i class="blocksButtons duplicateFunction fa-regular fa-clone"></i>' + this.name + '</p>' +
-        '</div>';
-
-        
+        '</div>';   
     }
 
     static getCollorBasedOnBlockType(blockType) {
@@ -55,6 +62,7 @@ class Block{
             "condition": "rgb(255, 171, 25)",//Orange
             "variable": "rgb(0, 255, 255)", //Cyan
             "function": "rgb(125 125 125)", //Grey
+            "premadeFuncition": "rgb(125 125 125)", //Grey
         }
         return colors[blockType];
     }
