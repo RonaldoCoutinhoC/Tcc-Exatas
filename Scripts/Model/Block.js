@@ -9,31 +9,31 @@ class Block{
 
 
     static DEFAULT_BLOCKS = {
-        "IF": new Block("IF", "if", "condition"),
-        "ELSE": new Block("ELSE", "else", "condition"),
-        "THEN": new Block("THEN", "then", "condition"),
-        "EQUALS": new Block("EQUALS (==)", "===","mathematical"),
-        "DIFFERENT": new Block("DIFFERENT (!=)","!==","mathematical"),
-        "AND": new Block("AND (&&)","&&","logical"),
-        "OR": new Block("OR (||)","||","logical"),
-        "GREATERTHEN": new Block("GREATER THEN (>)",">","mathematical"),
-        "GREATERTHENEQUAL": new Block("GREATER THEN EQUAL (>=)",">=","mathematical"),
-        "LESSTHEN": new Block("LESS THEN (<)","<","mathematical"),
-        "LESSTHENEQUAL": new Block("LESS THEN EQUAL (<=)","<","mathematical"),
-        "ASSIGN": new Block("ASSIGN (=)","=","logical"),
+        "IF": new Block("SE", "if", "condition"),
+        "ELSE": new Block("SENÃO", "else", "condition"),
+        "THEN": new Block("ENTÃO", "then", "condition"),
+        "EQUALS": new Block("IGUAL <br>'=='", "===","mathematical"),
+        "DIFFERENT": new Block("DIFERENTE <br>'!='","!==","mathematical"),
+        "AND": new Block("E <br>'&&'","&&","logical"),
+        "OR": new Block("OU <br>'||'","||","logical"),
+        "GREATERTHEN": new Block("MAIOR <br>'>'",">","mathematical"),
+        "GREATERTHENEQUAL": new Block("MAIOR OU IGUAL <br>'>='",">=","mathematical"),
+        "LESSTHEN": new Block("MENOR <br>'<'","<","mathematical"),
+        "LESSTHENEQUAL": new Block("MENOR OU IGUAL <br>'<='","<","mathematical"),
+        "ASSIGN": new Block("RECEBE <br>'='","=","logical"),
         "WHILE": new Block("WHILE","while","loop"),
         "DO": new Block("DO","do","loop"),
     }
 
     static CUSTOM_BLOCKS = {
-        "VARIABLE_BAIT": new Block("BAIT (Variable)","bait", "variable"),
+        "VARIABLE_BAIT": new Block("ISCA <br>'Variável'","bait", "variable"),
         "BAIT": new Block("ISCA","__bait__", "variable"),
         "BAIT1": new Block("FrogFish","---bait1---", "custom"),
         "BAIT2": new Block("SilverFish","---bait2---", "custom"),
-        "PESCAR": new Block("Pescar","getFish-premadeFunction", "premadeFuncition"),
-        "PESCARSALMAO": new Block("Pescar Salmao","getSalmao-premadeFunction", "premadeFuncition"),
-        "PESCARQUALQUER": new Block("Pescar Qualquer","getAnyFish-premadeFunction", "premadeFuncition"),
-        "VALUE10": new Block("VALUE10","__10__", "custom"),
+        "PESCAR": new Block("Pescar ( )","getFish-premadeFunction", "premadeFuncition"),
+        "PESCARSALMAO": new Block("Pescar<br> Salmao ( )","getSalmao-premadeFunction", "premadeFuncition"),
+        "PESCARQUALQUER": new Block("Pescar Qualquer ( )","getAnyFish-premadeFunction", "premadeFuncition"),
+        "VALUE10": new Block("10","__10__", "custom"),
         "FISHCONT": new Block("PEIXES PESCADOS","__fishCont__", "custom"),
     }
 
@@ -55,14 +55,20 @@ class Block{
 
     static getCollorBasedOnBlockType(blockType) {
         let colors = {
-            "logical": "rgb(89, 192, 89)",//Green
-            "mathematical": "rgb(100, 177, 214)",//Blue
-            "custom": "rgb(255, 102, 128)",//Pink
-            "loop": "rgb(119, 77, 203)",//Magenta
-            "condition": "rgb(255, 171, 25)",//Orange
-            "variable": "rgb(0, 255, 255)", //Cyan
-            "function": "rgb(125 125 125)", //Grey
-            "premadeFuncition": "rgb(125 125 125)", //Grey
+            "logical": "#1DFFFF",//Green
+            "mathematical": "#FF4536",//Blue
+            "custom": "#298EFF",//Pink
+            "loop": "#FFA303",//Magenta
+            "condition": "#0FFF77",//Orange
+            "variable": "#D701FF", //Cyan
+            // "logical": "rgb(89 192 89 / 100%)",//Green
+            // "mathematical": "rgb(100 177 214 / 90%)",//Blue
+            // "custom": "rgb(255 102 128 / 90%)",//Pink
+            // "loop": "rgb(119 77 203 / 90%)",//Magenta
+            // "condition": "rgb(255 171 25 / 90%)",//Orange
+            // "variable": "rgb(0 255 255 / 90%)", //Cyan
+            "function": "rgb(125 125 125 / 90%)", //Grey
+            "premadeFuncition": "rgb(125 125 125 / 90%)", //Grey
         }
         return colors[blockType];
     }

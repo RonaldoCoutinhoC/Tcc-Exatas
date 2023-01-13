@@ -186,7 +186,8 @@ class Level {
         Level.CURRENT_LEVEL_IDENTIFIER = 'level' + levelIndex;
         View.startDragAndDropControl();
         Level.saveLevelCurrentState();
-        //setStartLevelText();
+
+        setStartLevelText();
     }
 
     setAvailableBlocksDiv() {

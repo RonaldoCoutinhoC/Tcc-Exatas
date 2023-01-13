@@ -12,19 +12,19 @@ function setCurrentText(text){
 }
 
 function setStartLevelText(){
-    let currentLevel = Level.CURRENT_LEVEL;
+    let currentLevel = 1//Level.CURRENT_LEVEL;
     return setCurrentText(levelsHelpsTexts[currentLevel][currentTextIndex]);
 }
 
 function setNextHelpText(){
-    let currentLevel = Level.CURRENT_LEVEL;
+    let currentLevel = 1//Level.CURRENT_LEVEL;
     currentTextIndex++;
     if(currentTextIndex > levelsHelpsTexts[currentLevel].length - 1)currentTextIndex = levelsHelpsTexts[currentLevel].length - 1;
     return  setCurrentText(levelsHelpsTexts[currentLevel][currentTextIndex]);
 }
 
 function setPreviousHelpText(){
-    let currentLevel = Level.CURRENT_LEVEL;
+    let currentLevel = 1//Level.CURRENT_LEVEL;
     currentTextIndex--;
     if(currentTextIndex < 0)currentTextIndex = 0;
     return  setCurrentText(levelsHelpsTexts[currentLevel][currentTextIndex]);

@@ -1,28 +1,10 @@
-.toolsBarHolder {
-    background-color: darkslategrey;
-    min-width: 100%;
-    min-height: 15vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.tools {
-    background-color: #508484;
-    width: 95%;
-    min-height: 10vh;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-evenly;
-}
 
 .toolBarButton {
-    height: 50px;
-    width: 60px;
-    border-radius: 20px;
-    background-color: rgb(0, 0, 0);
+    height: 5vh;
+    width: 5vw;
+    border-radius: 5px;
+    background-color: rgb(0 223 255 / 25%);
+    color: rgb(255 255 255) !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,20 +12,22 @@
 }
 
 .toolBarButton:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 .fa{
-    font-size: 25px;
+    font-size: 3vh;
 }
 
-
+.fa-question{
+    font-size: 3vh;
+}
 
 .toolBarButton .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: black;
-    color: #fff;
+    color: rgb(255, 255, 255);
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;

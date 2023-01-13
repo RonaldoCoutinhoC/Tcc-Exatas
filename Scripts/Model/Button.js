@@ -31,7 +31,7 @@ class Button {
     getButtonHtml() {
         return '<div class="toolBarButton ' + this.className + '">' +
             '<span class="tooltiptext">' + this.tooltipText + '</span>' +
-            '<i class="' + this.iconHTMLClasses + '" style="color: white;"></i>' +
+            '<i class="' + this.iconHTMLClasses + '""></i>' +
             '</div>';
     }
 
