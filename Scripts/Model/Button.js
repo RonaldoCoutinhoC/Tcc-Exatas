@@ -11,9 +11,9 @@ class Button {
     }
 
     static MAIN_MENU_BUTTONS = [
+        new Button("Voltar ao Menu!", "returnMainMenu", "fa fa-solid fa-arrow-right-from-bracket"),
         new Button("Recomeçar o nível atual", "restartLevel", "fa fa-solid fa-backward"),
         new Button("Criar uma nova função!", "createNewFunction", "fa fa-solid fa-plus"),
-        new Button("Ajuda!", "displayHelp", "fa-solid fa-question"),
         new Button("Execute o código!", "executeCode", "fa fa-solid fa-play"),
         
     ]
@@ -78,6 +78,10 @@ class Button {
 //====================== BUTTONS FUNCTIONS =====================//
 
 const BUTTONS_FUNCTIONS = {
+    
+    "returnMainMenu": () => {
+        location.href = "index.html"
+    },
     "executeCode": () => {
         //Get all the blocksHolders of the selectedBlocks div
         const blocksHolders = document.querySelector('.selectedBlocks').children;
