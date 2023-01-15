@@ -100,7 +100,7 @@ class Level {
                 }
             }
 
-            if(fishes.some(fish=> fish === "salmao") && fishes.some(fish=> fish === "qualquer") && fishes.length === 2){
+            if(fishes[0] === "salmao" && fishes[1] === "qualquer" && fishes.length === 2){
                 return true;
             }
 

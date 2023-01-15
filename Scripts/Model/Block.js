@@ -56,7 +56,7 @@ class Block{
     static getCollorBasedOnBlockType(blockType) {
         let colors = {
             "logical": "#1DFFFF",//Green
-            "mathematical": "#FF4536",//Blue
+            "mathematical": "rgb(255, 113,19)",//Blue
             "custom": "#298EFF",//Pink
             "loop": "#FFA303",//Magenta
             "condition": "#0FFF77",//Orange

@@ -140,7 +140,7 @@ const BUTTONS_FUNCTIONS = {
         }
 
         let functionName = prompt("Funciton Name: ");
-        let block = new Block(functionName, functionClass, "function");
+        let block = new Block(functionName + " ( )", functionClass, "function");
 
         Level.loadLevelCurrentState();
         document.querySelector('.availableBlocks').innerHTML += block.htmlElement;

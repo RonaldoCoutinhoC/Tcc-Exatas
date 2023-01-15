@@ -1,6 +1,7 @@
 :root{
     --cardsColor: rgba(99, 99, 99, 0.432);
-    --borderColor: rgba(207, 207, 207, 0.801);
+    /* --borderColor: rgba(207, 207, 207, 0.801); */
+    --borderColor: rgba(0, 0, 0, 0.801);
 }
 
 * {
