@@ -15,6 +15,7 @@ function setCurrentText(text) {
 }
 
 function setStartLevelText() {
+    currentTextIndex = 0
     let currentLevel = Level.CURRENT_LEVEL;
     return setCurrentText(levelsHelpsTexts[currentLevel][currentTextIndex]);
 }
