@@ -13,7 +13,7 @@ class Button {
     static MAIN_MENU_BUTTONS = [
         new Button("Voltar ao Menu!", "returnMainMenu", "fa fa-solid fa-arrow-right-from-bracket"),
         new Button("Recomeçar o nível atual", "restartLevel", "fa fa-solid fa-backward"),
-        new Button("Criar uma nova função!", "createNewFunction", "fa fa-solid fa-plus"),
+        new Button("Criar uma nova função!", "createNewFunction", "fa fa-solid fa-plus newFunction"),
         new Button("Execute o código!", "executeCode", "fa fa-solid fa-play"),
         
     ]
@@ -139,11 +139,14 @@ const BUTTONS_FUNCTIONS = {
 
         if (blocksCounter < 2) {
             alert("Funções vazias ou com somente um unico bloco são inválidas!");
-            BUTTONS_FUNCTIONS["returnToGame"]();
+            //BUTTONS_FUNCTIONS["returnToGame"]();
             return;
         }
 
-        let functionName = prompt("Funciton Name: ");
+        let functionName = prompt("Nome da Função: ");
+        if(!functionName){
+            return;
+        }
         let block = new Block(functionName + " ( )", functionClass, "function");
 
         Level.loadLevelCurrentState();

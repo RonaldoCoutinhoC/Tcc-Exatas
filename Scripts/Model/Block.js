@@ -21,8 +21,8 @@ class Block{
         "LESSTHEN": new Block("MENOR <br>'<'","<","mathematical"),
         "LESSTHENEQUAL": new Block("MENOR OU IGUAL <br>'<='","<","mathematical"),
         "ASSIGN": new Block("RECEBE <br>'='","=","logical"),
-        "WHILE": new Block("WHILE","while","loop"),
-        "DO": new Block("DO","do","loop"),
+        "WHILE": new Block("ENQUANTO","while","loop"),
+        "DO": new Block("FAÇA","do","loop"),
     }
 
     static CUSTOM_BLOCKS = {

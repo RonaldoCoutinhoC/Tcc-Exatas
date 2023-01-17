@@ -2,6 +2,7 @@ import { Button } from "./Button.js";
 import { Block } from "./Block.js";
 import { View } from "../View.js";
 import { setStartLevelText } from "./HelpText.js";
+import { SaveController } from "./SaveController.js";
 class Level {
 
     constructor(index, availableBlocks, scriptValidator, numberOfEmptySpaces) {
@@ -183,6 +184,7 @@ class Level {
         level.setAvailableBlocksDiv();
         level.setSelectedBlocksDiv();
         Level.CURRENT_LEVEL = levelIndex;
+        SaveController.saveGame(levelIndex);
         Level.CURRENT_LEVEL_IDENTIFIER = 'level' + levelIndex;
         View.startDragAndDropControl();
         Level.saveLevelCurrentState();
