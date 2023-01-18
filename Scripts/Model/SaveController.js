@@ -1,5 +1,5 @@
 import { Level } from "./Level.js";
-
+import { Achievements } from "./Achievements.js";
 export class SaveController{
 
     constructor(){
@@ -10,7 +10,7 @@ export class SaveController{
 
         var saveGame = {
             currentLevel: currentLevel,
-            achievements: [],
+            achievements: Achievements.achievementsList,
         };
     
         localStorage.setItem("gameSave", JSON.stringify(saveGame));

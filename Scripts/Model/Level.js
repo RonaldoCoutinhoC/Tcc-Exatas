@@ -3,6 +3,8 @@ import { Block } from "./Block.js";
 import { View } from "../View.js";
 import { setStartLevelText } from "./HelpText.js";
 import { SaveController } from "./SaveController.js";
+
+
 class Level {
 
     constructor(index, availableBlocks, scriptValidator, numberOfEmptySpaces) {

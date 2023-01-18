@@ -2,6 +2,8 @@ import { Level } from "./Level.js";
 import { View } from "../View.js";
 import { Block } from "./Block.js";
 import { setNextHelpText,setPreviousHelpText } from "./HelpText.js";
+import { Achievements } from "./Achievements.js";
+
 class Button {
     constructor(tooltipText, className, iconHTMLClasses) {
         this.tooltipText = tooltipText;
@@ -96,6 +98,7 @@ const BUTTONS_FUNCTIONS = {
 
         if (Level.LEVEL_VALIDATORS[Level.CURRENT_LEVEL_IDENTIFIER](Level.treatCodeString(codeString))) {
             alert("Sucesso");
+            Achievements.achievementUnlocked(Level.CURRENT_LEVEL);
             Level.startLevel(Level.CURRENT_LEVEL + 1);
         } else {
             alert("Falha")
