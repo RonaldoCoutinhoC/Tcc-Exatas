@@ -21,6 +21,7 @@ export class SaveController{
         Level.CURRENT_LEVEL = 1;
         if (savedGame && savedGame.currentLevel) {
             Level.CURRENT_LEVEL = savedGame.currentLevel;
+            Achievements.achievementsList = savedGame.achievements
         }
     }
 

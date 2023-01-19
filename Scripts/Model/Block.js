@@ -12,6 +12,8 @@ class Block{
         "IF": new Block("SE", "if", "condition"),
         "ELSE": new Block("SENÃO", "else", "condition"),
         "THEN": new Block("ENTÃO", "then", "condition"),
+        "END_IF": new Block("FIM SE", "endIf", "condition"),
+        "END_ELSE": new Block("FIM SENÃO", "endElse", "condition"),
         "EQUALS": new Block("IGUAL <br>'=='", "===","mathematical"),
         "DIFFERENT": new Block("DIFERENTE <br>'!='","!==","mathematical"),
         "AND": new Block("E <br>'&&'","&&","logical"),
@@ -23,6 +25,7 @@ class Block{
         "ASSIGN": new Block("RECEBE <br>'='","=","logical"),
         "WHILE": new Block("ENQUANTO","while","loop"),
         "DO": new Block("FAÇA","do","loop"),
+        "END_WHILE": new Block("FIM ENQUANTO","endWhile","loop"),
     }
 
     static CUSTOM_BLOCKS = {
@@ -31,10 +34,13 @@ class Block{
         "BAIT1": new Block("FrogFish","---bait1---", "custom"),
         "BAIT2": new Block("SilverFish","---bait2---", "custom"),
         "PESCAR": new Block("Pescar ( )","getFish-premadeFunction", "premadeFuncition"),
+        "SOLTARPEIXE": new Block("Soltar Peixe ( )","dropFish-premadeFunction", "premadeFuncition"),
         "PESCARSALMAO": new Block("Pescar<br> Salmao ( )","getSalmao-premadeFunction", "premadeFuncition"),
         "PESCARQUALQUER": new Block("Pescar Qualquer ( )","getAnyFish-premadeFunction", "premadeFuncition"),
         "VALUE10": new Block("10","__10__", "custom"),
         "FISHCONT": new Block("PEIXES PESCADOS","__fishCont__", "custom"),
+        "SALMAO": new Block("SALMAO","__salmon__", "custom"),
+        "FISHOBTAINED": new Block("PEIXE PESCADO","__fishObtained__", "custom"),
     }
 
     getBlockHtml() {

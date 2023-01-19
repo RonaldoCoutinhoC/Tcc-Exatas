@@ -7,7 +7,12 @@ let levelsHelpsTexts = {
     1: getLevel1HelpTexts(),
     2: getLevel2HelpTexts(),
     3: getLevel3HelpTexts(),
-    4: getLevel4HelpTexts()
+    4: getLevel4HelpTexts(),
+    5: getLevel4HelpTexts(),
+    6: getLevel4HelpTexts(),
+    7: getLevel4HelpTexts(),
+    8: getLevel4HelpTexts(),
+    9: getLevel4HelpTexts(),
 }
 
 function setCurrentText(text) {

@@ -16,22 +16,19 @@
             <div class="gameTitle">CODE FISH</div>
 
             <div class="achievementsHolder">
-                <div class="achievement" id="1">
-                    <div class="achievementTitle">Conquista: </div>
-                    <div class="achievementDescription">Descrição: </div>
-                </div>
+                <div class="achievement" id="1"></div>
                 <div class="achievement" id="2"></div>
                 <div class="achievement" id="3"></div>
                 <div class="achievement" id="4"></div>
                 <div class="achievement" id="finishedTutorial"></div>
+                <div class="achievement" id="5"></div>
                 <div class="achievement" id="6"></div>
                 <div class="achievement" id="7"></div>
                 <div class="achievement" id="8"></div>
                 <div class="achievement" id="9"></div>
                 <div class="achievement" id="10"></div>
-                <div class="achievement" id="11"></div>
                 <div class="achievement" id="finishedGame"></div>
-                
+
             </div>
 
             <div class="buttonsHodler">
@@ -46,22 +43,7 @@
             </div>
         </div>
     </div>
-    <script>
-        var savedGame = JSON.parse(localStorage.getItem("gameSave"));
-        
-        if (savedGame && savedGame.achievements) {
-            console.log(JSON.stringify(savedGame.achievements));
-            let keys = Object.keys(savedGame.achievements);
-            keys.forEach(key=>{
-                let achievement = document.getElementById(key);
-                achievement.innerHTML = '<div class="achievementTitle">Conquista: <br />'+ savedGame.achievements[key].text +' </div>' + '<div class="achievementDescription"><br /> Descrição: <br />'+ savedGame.achievements[key].description + '</div>';
-                if(savedGame.achievements[key].unlocked === false){
-                    achievement.classList.add("achievementLocked");
-                    console.log(key + " Locked!")
-                }
-            });
-        }
-    </script>
+    <script type="module" src="Scripts/AchievementsController.js"></script>
 </body>
 
 </html>

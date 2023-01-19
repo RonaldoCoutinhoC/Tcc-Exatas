@@ -7,7 +7,7 @@ export class Achievements{
         1: {
             "text": "Agregando Valor!",
             "unlocked": false,
-            "description": "Defina um valor a uma variavel!"
+            "description": "Atribua um valor a uma variavel!"
         },
         2: {
             "text": "Sem retrabalho!",
@@ -28,6 +28,31 @@ export class Achievements{
             "text": "Ensinando a Pescar!",
             "unlocked": false,
             "description": "Finalize os níveis de tutoriais!"
+        },
+        5: {
+            "text": "A definir",
+            "unlocked": false,
+            "description": "A definir"
+        },
+        6: {
+            "text": "A definir",
+            "unlocked": false,
+            "description": "A definir"
+        },
+        7: {
+            "text": "A definir",
+            "unlocked": false,
+            "description": "A definir"
+        },
+        8: {
+            "text": "A definir",
+            "unlocked": false,
+            "description": "A definir"
+        },
+        9: {
+            "text": "A definir",
+            "unlocked": false,
+            "description": "A definir"
         },
         10: {
             "text": "O Poderoso!",

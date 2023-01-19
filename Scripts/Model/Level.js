@@ -40,6 +40,8 @@ class Level {
         Block.DEFAULT_BLOCKS["ELSE"],
         Block.DEFAULT_BLOCKS["THEN"],
         Block.DEFAULT_BLOCKS["THEN"],
+        Block.DEFAULT_BLOCKS["END_IF"],
+        Block.DEFAULT_BLOCKS["END_ELSE"],
         Block.DEFAULT_BLOCKS["AND"],
         Block.DEFAULT_BLOCKS["OR"],
         Block.DEFAULT_BLOCKS["EQUALS"],
@@ -59,7 +61,30 @@ class Level {
         Block.DEFAULT_BLOCKS["LESSTHEN"],
         Block.DEFAULT_BLOCKS["LESSTHENEQUAL"],
         Block.DEFAULT_BLOCKS["DO"],
+        Block.DEFAULT_BLOCKS["END_WHILE"],
         Block.CUSTOM_BLOCKS["FISHCONT"],
+    ];
+
+    //ESSE NIVEL TA UM POUCO COMPLEXO, SE FIZER ALGUM NIVEL MAIS FACIL JOGAR ELE MAIS PARA O FINAL
+    static blocksLevel5 = [
+        Block.CUSTOM_BLOCKS["PESCAR"],
+        Block.CUSTOM_BLOCKS["SALMAO"],
+        Block.CUSTOM_BLOCKS["FISHCONT"],
+        Block.CUSTOM_BLOCKS["VALUE10"],
+        Block.CUSTOM_BLOCKS["FISHOBTAINED"],
+        Block.CUSTOM_BLOCKS["SOLTARPEIXE"],
+        Block.DEFAULT_BLOCKS["WHILE"],
+        Block.DEFAULT_BLOCKS["DO"],
+        Block.DEFAULT_BLOCKS["IF"],
+        Block.DEFAULT_BLOCKS["THEN"],
+        Block.DEFAULT_BLOCKS["END_IF"],
+        Block.DEFAULT_BLOCKS["END_WHILE"],
+        Block.DEFAULT_BLOCKS["GREATERTHEN"],
+        Block.DEFAULT_BLOCKS["GREATERTHENEQUAL"],
+        Block.DEFAULT_BLOCKS["LESSTHEN"],
+        Block.DEFAULT_BLOCKS["LESSTHENEQUAL"],
+        Block.DEFAULT_BLOCKS["EQUALS"],
+        Block.DEFAULT_BLOCKS["DIFFERENT"],
     ];
 
     static LEVEL_VALIDATORS = {
@@ -131,10 +156,11 @@ class Level {
 
     static levels = [
         "",//Level 0 -> Ignore
-        new Level(1, Level.blocksLevel1, Level.LEVEL_VALIDATORS["level1"], 5),
+        new Level(1, Level.blocksLevel1, Level.LEVEL_VALIDATORS["level1"], 3),
         new Level(2, Level.blocksLevel2, Level.LEVEL_VALIDATORS["level2"], 3),
-        new Level(3, Level.blocksLevel3, Level.LEVEL_VALIDATORS["level3"], 9),
-        new Level(4, Level.blocksLevel4, Level.LEVEL_VALIDATORS["level4"], 8),
+        new Level(3, Level.blocksLevel3, Level.LEVEL_VALIDATORS["level3"], 15),
+        new Level(4, Level.blocksLevel4, Level.LEVEL_VALIDATORS["level4"], 7),
+        new Level(5, Level.blocksLevel5, Level.LEVEL_VALIDATORS["level4"], 18),
     ]
 
     static levelCurrentState = {}
@@ -158,22 +184,18 @@ class Level {
         string = string.replaceAll("---", "'");
         string = string.replaceAll("__", "");
         string = string.replaceAll("if", "if(");
+        string = string.replaceAll("endIf", "}");
+        string = string.replaceAll("endElse", "}");
+        string = string.replaceAll("endWhile", "; cont++; if(cont>1000)break;}");
         string = string.replaceAll("then", "){");
-
-        if(string.search("else")!== -1){
-            string += "}";
-        }
-        string = string.replaceAll("else", "}else if(true");
+        string = string.replaceAll("else", "else if(true");
         string = string.replaceAll("while", "let cont = 0;while(");
-
-        if(string.search("do")!== -1){
-            string += "; cont++; if(cont>1000)break;}";
-        }
-
         string = string.replaceAll("do", "){");
+
         console.log(string)
         return string;
     }
+
 
     static getCurrentLevel(){
         return Level.levels[Level.CURRENT_LEVEL];
