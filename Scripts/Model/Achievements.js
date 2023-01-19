@@ -30,29 +30,29 @@ export class Achievements{
             "description": "Finalize os níveis de tutoriais!"
         },
         5: {
-            "text": "A definir",
+            "text": "A definir!",
             "unlocked": false,
             "description": "A definir"
         },
         6: {
-            "text": "A definir",
+            "text": "A definir!",
             "unlocked": false,
             "description": "A definir"
         },
         7: {
-            "text": "A definir",
+            "text": "A definir!",
             "unlocked": false,
-            "description": "A definir"
+            "description": "A definir!"
         },
         8: {
-            "text": "A definir",
+            "text": "A definir!",
             "unlocked": false,
-            "description": "A definir"
+            "description": "A definir!"
         },
         9: {
-            "text": "A definir",
+            "text": "A definir!",
             "unlocked": false,
-            "description": "A definir"
+            "description": "A definir!"
         },
         10: {
             "text": "O Poderoso!",
