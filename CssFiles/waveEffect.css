@@ -22,7 +22,7 @@ body {
 .wave {
     background: url(https://cdn.kcak11.com/codepen_assets/wave_animation/wave.svg) repeat-x;
     position: absolute;
-    top: -20vh;
+    top: -15vh;
     width: 500vw;
     height: 20vh;
     animation: wave 8s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite, swell 7s ease -1.25s infinite;

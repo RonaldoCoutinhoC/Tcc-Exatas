@@ -91,7 +91,7 @@ const BUTTONS_FUNCTIONS = {
 
         for (let index = 0; index < blocksHolders.length; index++) {
             const element = blocksHolders[index].children ? blocksHolders[index].children[0] : null;
-            if (element && element.tagName === "P") {
+            if (element && element.tagName === "SPAN") {
                 codeString += element.classList[1] + ' ';
             }
         }
@@ -134,7 +134,7 @@ const BUTTONS_FUNCTIONS = {
         let blocksCounter = 0;
         for (let index = 0; index < blocksHolders.length; index++) {
             const element = blocksHolders[index].children ? blocksHolders[index].children[0] : null;
-            if (element && element.tagName === "P") {
+            if (element && element.tagName === "SPAN") {
                 blocksCounter++;
                 functionClass += 'functBlock' + element.classList[1];
             }
@@ -150,6 +150,12 @@ const BUTTONS_FUNCTIONS = {
         if(!functionName){
             return;
         }
+
+        if(functionName.search(" ")!== -1){
+            functionName.replaceAll(" ", "oi")
+        }
+
+
         let block = new Block(functionName + " ( )", functionClass, "function");
 
         Level.loadLevelCurrentState();

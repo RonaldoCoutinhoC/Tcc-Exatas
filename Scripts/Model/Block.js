@@ -33,6 +33,7 @@ class Block{
         "BAIT": new Block("ISCA","__bait__", "variable"),
         "BAIT1": new Block("FrogFish","---bait1---", "custom"),
         "BAIT2": new Block("SilverFish","---bait2---", "custom"),
+        "MIKEWANTS": new Block("MIKE QUER","__mikeWants__", "custom"),
         "PESCAR": new Block("Pescar ( )","getFish-premadeFunction", "premadeFuncition"),
         "SOLTARPEIXE": new Block("Soltar Peixe ( )","dropFish-premadeFunction", "premadeFuncition"),
         "PESCARSALMAO": new Block("Pescar<br> Salmao ( )","getSalmao-premadeFunction", "premadeFuncition"),
@@ -40,24 +41,25 @@ class Block{
         "VALUE10": new Block("10","__10__", "custom"),
         "FISHCONT": new Block("PEIXES PESCADOS","__fishCont__", "custom"),
         "SALMAO": new Block("SALMAO","__salmon__", "custom"),
+        "TILAPIA": new Block("TILÁPIA","__tilapia__", "custom"),
         "FISHOBTAINED": new Block("PEIXE PESCADO","__fishObtained__", "custom"),
         "FISHWEIGHT": new Block("PESO PEIXE PESCADO","__fishWeight__", "custom"),
         "VALUE10KG": new Block("10 KG","__10__", "custom"),
     }
 
-    getBlockHtml() {
+    getBlockHtml() {//DIV QUE CONTEM O NOME ERA UM P, CASO DE ALGUM PROBLEMA REFAZER
         return'<div class="blocksHolder dropzone">' +
-            '<p class="block ' + this.htmlClass +
+            '<span class="block ' + this.htmlClass +
             '" draggable="true" style="background-color:' + this.color + ';"' +
-            '>' + this.name + '</p>' +
+            '><p class="notSelectable">' + this.name + '</p></span>' +
             '</div>';
     }
 
     getBlockFunctionHtml() {
         return'<div class="blocksHolder dropzone">' +
-        '<p class="block ' + this.htmlClass +
+        '<span class="block ' + this.htmlClass +
         '" draggable="true" style="background-color:' + this.color + ';"' +
-        '><i class="blocksButtons duplicateFunction fa-regular fa-clone"></i><p class="notSelectable">' + this.name + '</p></p>' +
+        '><i class="blocksButtons duplicateFunction fa-regular fa-clone"></i><p class="notSelectable">' + this.name + '</p></span>' +
         '</div>';   
     }
 

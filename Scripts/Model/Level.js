@@ -66,6 +66,23 @@ class Level {
     ];
 
     static blocksLevel5 = [
+        Block.DEFAULT_BLOCKS["ASSIGN"],
+        Block.CUSTOM_BLOCKS["VARIABLE_BAIT"],
+        Block.CUSTOM_BLOCKS["MIKEWANTS"],
+        Block.CUSTOM_BLOCKS["SALMAO"],
+        Block.CUSTOM_BLOCKS["TILAPIA"],
+        Block.CUSTOM_BLOCKS["BAIT1"],
+        Block.CUSTOM_BLOCKS["BAIT2"],
+        Block.DEFAULT_BLOCKS["IF"],
+        Block.DEFAULT_BLOCKS["ELSE"],
+        Block.DEFAULT_BLOCKS["THEN"],
+        Block.DEFAULT_BLOCKS["THEN"],
+        Block.DEFAULT_BLOCKS["END_IF"],
+        Block.DEFAULT_BLOCKS["END_ELSE"],
+        Block.DEFAULT_BLOCKS["EQUALS"],
+        Block.DEFAULT_BLOCKS["DIFFERENT"],
+    ];
+    static blocksLevel6 = [
         Block.CUSTOM_BLOCKS["PESCAR"],
         Block.CUSTOM_BLOCKS["FISHWEIGHT"],
         Block.CUSTOM_BLOCKS["VALUE10KG"],
@@ -86,11 +103,11 @@ class Level {
         Block.DEFAULT_BLOCKS["IF"],
         Block.DEFAULT_BLOCKS["THEN"],
         Block.DEFAULT_BLOCKS["END_IF"],
-        
+
     ];
 
     //ESSE NIVEL TA UM POUCO COMPLEXO, SE FIZER ALGUM NIVEL MAIS FACIL JOGAR ELE MAIS PARA O FINAL
-    static blocksLevel6 = [
+    static blocksLevel7 = [
         Block.CUSTOM_BLOCKS["PESCAR"],
         Block.CUSTOM_BLOCKS["SALMAO"],
         Block.CUSTOM_BLOCKS["FISHCONT"],
@@ -132,29 +149,29 @@ class Level {
             return false;
         },
         level3: (treatedCode) => {
-            
+
             let fishes = [];
 
             getFishes('bait1');
             getFishes('any');
 
-            function getFishes(baitParameter){
+            function getFishes(baitParameter) {
                 let bait = baitParameter;
 
                 try {
                     eval(treatedCode);
                 } catch (e) { }
 
-                function getSalmao(){
+                function getSalmao() {
                     fishes.push("salmao");
                 }
 
-                function getAnyFish(){
+                function getAnyFish() {
                     fishes.push("qualquer");
                 }
             }
 
-            if(fishes[0] === "salmao" && fishes[1] === "qualquer" && fishes.length === 2){
+            if (fishes[0] === "salmao" && fishes[1] === "qualquer" && fishes.length === 2) {
                 return true;
             }
 
@@ -167,18 +184,47 @@ class Level {
             try {
                 eval(treatedCode);
             } catch (e) { }
-            
-            if(fishCont === 10)return true;
-            
+
+            if (fishCont === 10) return true;
+
             return false;
 
-            function getFish(){
+            function getFish() {
                 fishCont++;
             }
 
             return false;
         },
         level5: (treatedCode) => {
+
+            let salmon = "salmon";
+            let tilapia = "tilapia"
+            let condition1 = false;
+            let condition2 = false;
+
+            if(treatedCode.search("salmon") === -1 && treatedCode.search("tilapia") === -1)return false;
+
+            function userCode(mikeWants) {
+                eval(treatedCode);
+            }
+
+            let bait;
+            userCode("salmon");
+            
+            if(bait === 'bait1')condition1 = true;
+            userCode("tilapia");
+
+            if(bait === 'bait2')condition2 = true;
+
+            if(condition1 === true && condition2 === true){
+                return true;
+            }
+            
+            return false;
+
+
+        },
+        level6: (treatedCode) => {
 
             let fishObtained = "random";
             let fishWeight = 0;
@@ -188,65 +234,66 @@ class Level {
             try {
                 eval(treatedCode);
             } catch (e) { }
-            
-            if(treatedCode.search("while")=== -1)return false;
 
-            if(fishObtained === salmon && fishWeight >= 10){
+            if (treatedCode.search("while") === -1) return false;
+
+            if (fishObtained === salmon && fishWeight >= 10) {
                 return true;
-            }else{
+            } else {
                 return false;
             }
-            
-            function getFish(){
+
+            function getFish() {
                 let auxRandomFish = ["salmon", "random"];
                 let auxRandomFishWeight = [5, 10];
                 fishObtained = auxRandomFish[Math.floor(Math.random() * 2)];
                 fishWeight = auxRandomFishWeight[Math.floor(Math.random() * 2)];
             }
         },
-        level6: (treatedCode) => {
+        level7: (treatedCode) => {
 
-            
+
             let fishCont = 0;
             let fishContArray = [];
             let fishObtained;
-            
+
             try {
                 eval(treatedCode);
             } catch (e) { }
 
-            if(fishContArray.length >= 10 && fishContArray.every(fish => fish === "salmon")){
+            if (fishContArray.length >= 10 && fishContArray.every(fish => fish === "salmon")) {
                 return true;
             }
 
-            return false;        
-              
-            function getFish(){
+            return false;
+
+            function getFish() {
                 let auxRandomFish = ["salmon", "random"];
                 fishObtained = auxRandomFish[Math.floor(Math.random() * 2)];
                 fishContArray.push(fishObtained);
                 fishCont++;
             }
 
-            function dropFish(){
+            function dropFish() {
                 fishContArray.pop();
                 fishCont--;
             }
 
 
         },
-        
+
 
     };
 
     static levels = [
         "",//Level 0 -> Ignore
-        new Level(1, Level.blocksLevel1, Level.LEVEL_VALIDATORS["level1"], 22),
+        new Level(1, Level.blocksLevel1, Level.LEVEL_VALIDATORS["level1"], 3),
         new Level(2, Level.blocksLevel2, Level.LEVEL_VALIDATORS["level2"], 3),
         new Level(3, Level.blocksLevel3, Level.LEVEL_VALIDATORS["level3"], 15),
         new Level(4, Level.blocksLevel4, Level.LEVEL_VALIDATORS["level4"], 7),
         new Level(5, Level.blocksLevel5, Level.LEVEL_VALIDATORS["level5"], 15),
-        new Level(6, Level.blocksLevel6, Level.LEVEL_VALIDATORS["level6"], 20),
+        new Level(6, Level.blocksLevel6, Level.LEVEL_VALIDATORS["level6"], 15),
+        new Level(7, Level.blocksLevel7, Level.LEVEL_VALIDATORS["level7"], 20),
     ]
 
     static levelCurrentState = {}
@@ -283,7 +330,7 @@ class Level {
     }
 
 
-    static getCurrentLevel(){
+    static getCurrentLevel() {
         return Level.levels[Level.CURRENT_LEVEL];
     }
 
@@ -319,7 +366,7 @@ class Level {
         document.querySelector('.selectedBlocks').innerHTML = selectedBlocksDiv;
     }
 
-    
+
 
 }
 
