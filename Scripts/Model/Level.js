@@ -65,8 +65,32 @@ class Level {
         Block.CUSTOM_BLOCKS["FISHCONT"],
     ];
 
-    //ESSE NIVEL TA UM POUCO COMPLEXO, SE FIZER ALGUM NIVEL MAIS FACIL JOGAR ELE MAIS PARA O FINAL
     static blocksLevel5 = [
+        Block.CUSTOM_BLOCKS["PESCAR"],
+        Block.CUSTOM_BLOCKS["FISHWEIGHT"],
+        Block.CUSTOM_BLOCKS["VALUE10KG"],
+        Block.CUSTOM_BLOCKS["SALMAO"],
+        Block.CUSTOM_BLOCKS["FISHOBTAINED"],
+        Block.CUSTOM_BLOCKS["BAIT1"],
+        Block.DEFAULT_BLOCKS["EQUALS"],
+        Block.DEFAULT_BLOCKS["DIFFERENT"],
+        Block.DEFAULT_BLOCKS["LESSTHEN"],
+        Block.DEFAULT_BLOCKS["LESSTHENEQUAL"],
+        Block.DEFAULT_BLOCKS["GREATERTHEN"],
+        Block.DEFAULT_BLOCKS["GREATERTHENEQUAL"],
+        Block.DEFAULT_BLOCKS["AND"],
+        Block.DEFAULT_BLOCKS["OR"],
+        Block.DEFAULT_BLOCKS["WHILE"],
+        Block.DEFAULT_BLOCKS["DO"],
+        Block.DEFAULT_BLOCKS["END_WHILE"],
+        Block.DEFAULT_BLOCKS["IF"],
+        Block.DEFAULT_BLOCKS["THEN"],
+        Block.DEFAULT_BLOCKS["END_IF"],
+        
+    ];
+
+    //ESSE NIVEL TA UM POUCO COMPLEXO, SE FIZER ALGUM NIVEL MAIS FACIL JOGAR ELE MAIS PARA O FINAL
+    static blocksLevel6 = [
         Block.CUSTOM_BLOCKS["PESCAR"],
         Block.CUSTOM_BLOCKS["SALMAO"],
         Block.CUSTOM_BLOCKS["FISHCONT"],
@@ -117,7 +141,9 @@ class Level {
             function getFishes(baitParameter){
                 let bait = baitParameter;
 
-                eval(treatedCode)
+                try {
+                    eval(treatedCode);
+                } catch (e) { }
 
                 function getSalmao(){
                     fishes.push("salmao");
@@ -138,7 +164,9 @@ class Level {
 
             let fishCont = 0;
 
-            eval(treatedCode);
+            try {
+                eval(treatedCode);
+            } catch (e) { }
             
             if(fishCont === 10)return true;
             
@@ -150,6 +178,63 @@ class Level {
 
             return false;
         },
+        level5: (treatedCode) => {
+
+            let fishObtained = "random";
+            let fishWeight = 0;
+            let salmon = "salmon";
+            let cont = 0;
+
+            try {
+                eval(treatedCode);
+            } catch (e) { }
+            
+            if(treatedCode.search("while")=== -1)return false;
+
+            if(fishObtained === salmon && fishWeight >= 10){
+                return true;
+            }else{
+                return false;
+            }
+            
+            function getFish(){
+                let auxRandomFish = ["salmon", "random"];
+                let auxRandomFishWeight = [5, 10];
+                fishObtained = auxRandomFish[Math.floor(Math.random() * 2)];
+                fishWeight = auxRandomFishWeight[Math.floor(Math.random() * 2)];
+            }
+        },
+        level6: (treatedCode) => {
+
+            
+            let fishCont = 0;
+            let fishContArray = [];
+            let fishObtained;
+            
+            try {
+                eval(treatedCode);
+            } catch (e) { }
+
+            if(fishContArray.length >= 10 && fishContArray.every(fish => fish === "salmon")){
+                return true;
+            }
+
+            return false;        
+              
+            function getFish(){
+                let auxRandomFish = ["salmon", "random"];
+                fishObtained = auxRandomFish[Math.floor(Math.random() * 2)];
+                fishContArray.push(fishObtained);
+                fishCont++;
+            }
+
+            function dropFish(){
+                fishContArray.pop();
+                fishCont--;
+            }
+
+
+        },
         
 
     };
@@ -160,7 +245,8 @@ class Level {
         new Level(2, Level.blocksLevel2, Level.LEVEL_VALIDATORS["level2"], 3),
         new Level(3, Level.blocksLevel3, Level.LEVEL_VALIDATORS["level3"], 15),
         new Level(4, Level.blocksLevel4, Level.LEVEL_VALIDATORS["level4"], 7),
-        new Level(5, Level.blocksLevel5, Level.LEVEL_VALIDATORS["level4"], 18),
+        new Level(5, Level.blocksLevel5, Level.LEVEL_VALIDATORS["level5"], 15),
+        new Level(6, Level.blocksLevel6, Level.LEVEL_VALIDATORS["level6"], 20),
     ]
 
     static levelCurrentState = {}

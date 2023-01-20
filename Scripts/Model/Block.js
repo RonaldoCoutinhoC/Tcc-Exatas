@@ -41,6 +41,8 @@ class Block{
         "FISHCONT": new Block("PEIXES PESCADOS","__fishCont__", "custom"),
         "SALMAO": new Block("SALMAO","__salmon__", "custom"),
         "FISHOBTAINED": new Block("PEIXE PESCADO","__fishObtained__", "custom"),
+        "FISHWEIGHT": new Block("PESO PEIXE PESCADO","__fishWeight__", "custom"),
+        "VALUE10KG": new Block("10 KG","__10__", "custom"),
     }
 
     getBlockHtml() {
