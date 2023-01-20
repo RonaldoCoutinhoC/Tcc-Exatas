@@ -57,7 +57,7 @@ class Block{
         return'<div class="blocksHolder dropzone">' +
         '<p class="block ' + this.htmlClass +
         '" draggable="true" style="background-color:' + this.color + ';"' +
-        '><i class="blocksButtons duplicateFunction fa-regular fa-clone"></i>' + this.name + '</p>' +
+        '><i class="blocksButtons duplicateFunction fa-regular fa-clone"></i><p class="notSelectable">' + this.name + '</p></p>' +
         '</div>';   
     }
 
@@ -69,12 +69,6 @@ class Block{
             "loop": "#FFA303",//Magenta
             "condition": "#0FFF77",//Orange
             "variable": "#D701FF", //Cyan
-            // "logical": "rgb(89 192 89 / 100%)",//Green
-            // "mathematical": "rgb(100 177 214 / 90%)",//Blue
-            // "custom": "rgb(255 102 128 / 90%)",//Pink
-            // "loop": "rgb(119 77 203 / 90%)",//Magenta
-            // "condition": "rgb(255 171 25 / 90%)",//Orange
-            // "variable": "rgb(0 255 255 / 90%)", //Cyan
             "function": "rgb(125 125 125 / 90%)", //Grey
             "premadeFuncition": "rgb(125 125 125 / 90%)", //Grey
         }

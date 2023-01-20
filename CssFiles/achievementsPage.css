@@ -167,3 +167,6 @@ a:active { text-decoration: none; }
     color: grey;
 }
 
+.notSelectable{
+    user-select: none;
+}
