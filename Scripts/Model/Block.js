@@ -26,6 +26,8 @@ class Block{
         "WHILE": new Block("ENQUANTO","while","loop"),
         "DO": new Block("FAÇA","do","loop"),
         "END_WHILE": new Block("FIM ENQUANTO","endWhile","loop"),
+        "TRUE": new Block("VERDADEIRO","true","boolean"),
+        "FALSE": new Block("FALSO","false","boolean"),
     }
 
     static CUSTOM_BLOCKS = {
@@ -35,7 +37,7 @@ class Block{
         "BAIT2": new Block("SilverFish","---bait2---", "custom"),
         "MIKEWANTS": new Block("MIKE QUER","__mikeWants__", "custom"),
         "PESCAR": new Block("Pescar ( )","getFish-premadeFunction", "premadeFuncition"),
-        "SOLTARPEIXE": new Block("Soltar Peixe ( )","dropFish-premadeFunction", "premadeFuncition"),
+        "SOLTARPEIXE": new Block("Soltar Peixe <br>( )","dropFish-premadeFunction", "premadeFuncition"),
         "PESCARSALMAO": new Block("Pescar<br> Salmao ( )","getSalmao-premadeFunction", "premadeFuncition"),
         "PESCARQUALQUER": new Block("Pescar Qualquer ( )","getAnyFish-premadeFunction", "premadeFuncition"),
         "VALUE10": new Block("10","__10__", "custom"),
@@ -45,13 +47,15 @@ class Block{
         "FISHOBTAINED": new Block("PEIXE PESCADO","__fishObtained__", "custom"),
         "FISHWEIGHT": new Block("PESO PEIXE PESCADO","__fishWeight__", "custom"),
         "VALUE10KG": new Block("10 KG","__10__", "custom"),
+        "VALUE7KG": new Block("7 KG","__7__", "custom"),
+        "FISHWANTEDOBTAINED": new Block("PEIXE DESEJADO PESCADO","__fishWantedObtained__", "variable"),
     }
 
     getBlockHtml() {//DIV QUE CONTEM O NOME ERA UM P, CASO DE ALGUM PROBLEMA REFAZER
         return'<div class="blocksHolder dropzone">' +
             '<span class="block ' + this.htmlClass +
             '" draggable="true" style="background-color:' + this.color + ';"' +
-            '><p class="notSelectable">' + this.name + '</p></span>' +
+            '><div class="blockText"><p class="notSelectable">' + this.name + '</p></div></span>' +
             '</div>';
     }
 
@@ -72,6 +76,7 @@ class Block{
             "condition": "#0FFF77",//Orange
             "variable": "#D701FF", //Cyan
             "function": "rgb(125 125 125 / 90%)", //Grey
+            "boolean": "#FFFFFF",
             "premadeFuncition": "rgb(125 125 125 / 90%)", //Grey
         }
         return colors[blockType];

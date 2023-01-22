@@ -75,3 +75,9 @@
 .notSelectable{
     user-select: none;
 }
+
+p {
+    /* background-color: bisque; */
+    /* width: 5vw; */
+    font-size: 0.7vw !important;
+}
