@@ -16,6 +16,7 @@ class Level {
 
     static CURRENT_LEVEL = 1;
     static CURRENT_LEVEL_IDENTIFIER = "level1";
+    static IS_UNIQUE_PLAY = false;
 
     static blocksLevel1 = [
         Block.DEFAULT_BLOCKS["EQUALS"],
@@ -192,7 +193,6 @@ class Level {
             return false;
         },
         level4: (treatedCode) => {
-
             let fishCont = 0;
 
             try {
@@ -273,7 +273,7 @@ class Level {
             let salmon = "salmon";
             try {
                 eval(treatedCode);
-                
+
             } catch (e) { }
 
             if (fishContArray.length >= 10 && fishContArray.every(fish => fish === "salmon")) {
@@ -311,8 +311,8 @@ class Level {
             try {
                 if (testUserCode(7) === true &&
                     testUserCode(10) === false) {
-                        console.log("Passou")
-                        return true;
+                    console.log("Passou")
+                    return true;
                 }
 
             } catch (e) { }
@@ -377,13 +377,16 @@ class Level {
     }
 
     static startLevel(levelIndex) {
-        console.log(levelIndex)
-        let level = Level.levels[levelIndex];
 
+        let level = Level.levels[levelIndex];
+        console.log
         level.setAvailableBlocksDiv();
         level.setSelectedBlocksDiv();
         Level.CURRENT_LEVEL = levelIndex;
-        SaveController.saveGame(levelIndex);
+        if (Level.IS_UNIQUE_PLAY === false) {
+            console.log("Saved Game")
+            SaveController.saveGame(levelIndex);
+        }
         Level.CURRENT_LEVEL_IDENTIFIER = 'level' + levelIndex;
         View.startDragAndDropControl();
         Level.saveLevelCurrentState();

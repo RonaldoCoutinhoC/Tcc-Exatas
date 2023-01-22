@@ -1,0 +1,167 @@
+:root {
+    --cardsColor: rgb(0 209 255 / 10%);
+    /* --borderColor: rgba(207, 207, 207, 0.801); */
+    --borderColor: rgba(0, 0, 0, 0.801);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, sans-serif;
+    font-size: 1.5vh;
+}
+
+.bodyBackgroud {
+    height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.menuHolder {
+    height: 70vh;
+    width: 85vw;
+    background-color: white;
+    display: flex;
+    background-color: var(--cardsColor);
+    flex-direction: column;
+    border-radius: 5px;
+    border: solid;
+    border-color: var(--borderColor);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.gameTitle {
+    font-size: 5vw;
+    color: #07b5ff;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-shadow: 0px 0px 0 rgb(-21, 153, 227),
+        0px 1px 0 rgb(-49, 125, 199),
+        0px 2px 0 rgb(-77, 97, 171),
+        0px 3px 0 rgb(-106, 68, 142),
+        0px 4px 0 rgb(-134, 40, 114),
+        0px 5px 0 rgb(-162, 12, 86),
+        0px 6px 0 rgb(-190, -16, 58),
+        0px 7px 6px rgba(0, 0, 0, 0.48),
+        0px 7px 1px rgba(0, 0, 0, 0.5),
+        0px 0px 6px rgba(0, 0, 0, .2);
+}
+
+.buttonsHodler {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+}
+
+.menuButton {
+    height: 7vh;
+    width: 15vw;
+    border-radius: 5px;
+    background-color: rgb(0 223 255 / 25%);
+    color: #ffffff !important;
+    font-size: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+    margin-top: 10px;
+    border: solid;
+    border-color: var(--borderColor);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+a:visited {
+    text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: none;
+}
+
+
+a:active {
+    text-decoration: none;
+}
+
+.menuButton:hover {
+    transform: scale(1.2);
+}
+
+.levelsHolder {
+    width: 80vw;
+    height: fit-content;
+    display: flex;
+    /* background-color: #a8eb12; */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.levelIndex {
+    margin: 0.5vw;
+    width: 15vw;
+    height: 15vh;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0) !important;
+    z-index: 1;
+    border-radius: 5px;
+    box-shadow: 1px 4px 18px 2px rgba(0, 0, 0, 0.75);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 3px solid #00ff35;
+    transition: transform .2s;
+}
+
+
+.levelIndex:has(.lockedLevel) {
+    border: 3px solid grey;
+}
+
+.levelIndex:has(.canHover):hover {
+    transform: scale(1.1);
+}
+
+
+.backImg.achievementLocked {
+    opacity: 40%;
+}
+
+.font {
+    font-size: larger;
+    color: #050505;
+    color: #07b5ff;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-shadow: 0px 0px 0 rgb(-21, 153, 227),
+        0px 1px 0 rgb(-49, 125, 199),
+        0px 2px 0 rgb(-77, 97, 171),
+        0px 3px 0 rgb(-106, 68, 142),
+        0px 4px 0 rgb(-134, 40, 114),
+        0px 5px 0 rgb(-162, 12, 86),
+        0px 6px 0 rgb(-190, -16, 58),
+        0px 7px 6px rgba(0, 0, 0, 0.48),
+        0px 7px 1px rgba(0, 0, 0, 0.5),
+        0px 0px 6px rgba(0, 0, 0, .2);
+
+}
+
+.lockedLevel {
+    filter: grayscale(100%);
+    color: grey;
+}

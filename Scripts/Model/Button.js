@@ -98,6 +98,13 @@ const BUTTONS_FUNCTIONS = {
 
         if (Level.LEVEL_VALIDATORS[Level.CURRENT_LEVEL_IDENTIFIER](Level.treatCodeString(codeString))) {
             alert("Sucesso");
+
+            if(Level.IS_UNIQUE_PLAY === true){
+                Level.IS_UNIQUE_PLAY === false;
+                window.location.href = "index.html";
+                return;
+            }
+
             Achievements.achievementUnlocked(Level.CURRENT_LEVEL);
             Level.startLevel(Level.CURRENT_LEVEL + 1);
         } else {
@@ -108,6 +115,12 @@ const BUTTONS_FUNCTIONS = {
         Level.startLevel(Level.CURRENT_LEVEL);
     },
     "createNewFunction": () => {
+
+        if(Level.CURRENT_LEVEL === 1){
+            alert("Disponível a partir do nível 2");
+            return;
+        }
+
         let selectedBlocksDiv = '';
         for (let index = 0; index < 6; index++) {
             selectedBlocksDiv += '<div class="functionBlocksHolder blocksHolder dropzone"></div>';

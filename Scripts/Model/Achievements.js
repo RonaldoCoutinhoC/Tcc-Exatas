@@ -1,5 +1,5 @@
-export class Achievements{
-    constructor(){
+export class Achievements {
+    constructor() {
 
     }
 
@@ -65,32 +65,62 @@ export class Achievements{
             "description": "Desbloqueie todas as outras conquistas!"
         },
     }
-    
 
-    static getAchiviementText(levelIndex){
-        return this.achievementsList[levelIndex].text
+
+    static getAchiviementText(levelIndex) {
+        return Achievements.achievementsList[levelIndex].text
     }
 
-    static unlockAchievement(levelIndex){
-        this.achievementsList[levelIndex].unlocked = true;
+    static unlockAchievement(levelIndex) {
+        Achievements.achievementsList[levelIndex].unlocked = true;
+        console.log("Achievement " + levelIndex + "Unlocked");
+        console.log(Achievements.achievementsList[levelIndex].unlocked);
     }
 
-    static specialAchievementUnlocked(condition){
-        this.unlockAchievement(condition);
-        let text = this.getAchiviementText(condition);
+    static specialAchievementUnlocked(condition) {
+        Achievements.unlockAchievement(condition);
+        let text = Achievements.getAchiviementText(condition);
         document.getElementById('achievementText').innerHTML = "<span class='upperTextAchievement'>Conquista Desbloqueada!</span> <br />" + text;
-        this.displayAchievement();
+        Achievements.displayAchievement();
     }
 
     static achievementUnlocked(levelIndex) {
 
-        this.unlockAchievement(levelIndex);
-        let text = this.getAchiviementText(levelIndex);
-        document.getElementById('achievementText').innerHTML = "<span class='upperTextAchievement'>Conquista Desbloqueada!</span> <br />" + text;
-        this.displayAchievement();
+        let index = levelIndex;
+
+        if (index === 4) {
+            Achievements.unlockAchievement("finishedTutorial");
+            auxUnlock(index);
+            setTimeout(function () {
+                let text = Achievements.getAchiviementText("finishedTutorial");
+                document.getElementById('achievementText').innerHTML = "<span class='upperTextAchievement'>Conquista Desbloqueada!</span> <br />" + text;
+                Achievements.displayAchievement();
+            }, 7000);
+        }else if(index === 10){
+            Achievements.unlockAchievement("finishedGame");
+            auxUnlock(index);
+            setTimeout(function () {
+                let text = Achievements.getAchiviementText("finishedTutorial");
+                document.getElementById('achievementText').innerHTML = "<span class='upperTextAchievement'>Conquista Desbloqueada!</span> <br />" + text;
+                Achievements.displayAchievement();
+            }, 7000);
+        }else{
+            auxUnlock(index);
+        }
+
+
+
+        function auxUnlock(unlockAchievementIndex) {
+            Achievements.unlockAchievement(unlockAchievementIndex);
+            let text = Achievements.getAchiviementText(unlockAchievementIndex);
+            document.getElementById('achievementText').innerHTML = "<span class='upperTextAchievement'>Conquista Desbloqueada!</span> <br />" + text;
+            Achievements.displayAchievement();
+        }
+
+
     }
 
-    static displayAchievement(){
+    static displayAchievement() {
         setTimeout(function () {
             document.getElementsByClassName("achievement")[0].className = "achievement";
         }, 200);
