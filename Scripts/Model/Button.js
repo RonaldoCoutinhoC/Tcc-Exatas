@@ -4,6 +4,7 @@ import { Block } from "./Block.js";
 import { Background } from "./Background.js";
 import { setNextHelpText,setPreviousHelpText } from "./HelpText.js";
 import { Achievements } from "./Achievements.js";
+import { SaveController } from "./SaveController.js";
 
 class Button {
     constructor(tooltipText, className, iconHTMLClasses) {
@@ -108,6 +109,15 @@ const BUTTONS_FUNCTIONS = {
             }
 
             Achievements.achievementUnlocked(Level.CURRENT_LEVEL);
+
+            if(Level.CURRENT_LEVEL === 10){
+                SaveController.saveGame(Level.CURRENT_LEVEL);
+                setTimeout(function () {
+                    window.location.href = "index.html";
+                }, 15000);
+                
+            }
+
             Level.startLevel(Level.CURRENT_LEVEL + 1);
         } else {
             await Background.runFailAnimation();

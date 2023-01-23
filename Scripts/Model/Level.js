@@ -143,6 +143,26 @@ class Level {
         Block.CUSTOM_BLOCKS["FISHWANTEDOBTAINED"],
     ];
 
+    static blocksLevel10 = [
+        Block.DEFAULT_BLOCKS["WHILE"],
+        Block.DEFAULT_BLOCKS["DO"],
+        Block.DEFAULT_BLOCKS["END_WHILE"],
+        Block.CUSTOM_BLOCKS["BAIT1"],
+        Block.CUSTOM_BLOCKS["BAIT3"],
+        Block.CUSTOM_BLOCKS["FISHCONT"],
+        Block.CUSTOM_BLOCKS["FISHCONT"],
+        Block.CUSTOM_BLOCKS["VALUE100"],
+        Block.CUSTOM_BLOCKS["VALUE101"],
+        Block.DEFAULT_BLOCKS["ASSIGN"],
+        Block.CUSTOM_BLOCKS["VARIABLE_BAIT"],
+        Block.DEFAULT_BLOCKS["IF"],
+        Block.DEFAULT_BLOCKS["THEN"],
+        Block.DEFAULT_BLOCKS["END_IF"],
+        Block.DEFAULT_BLOCKS["EQUALS"],
+        Block.DEFAULT_BLOCKS["LESSTHENEQUAL"],
+
+    ];
+
     static LEVEL_VALIDATORS = {
         level1: (treatedCode) => {
             let bait;
@@ -321,8 +341,39 @@ class Level {
 
 
         },
+        level10: (treatedCode) => {
 
+            let fishCont = [];
+            //treatedCode = "let cont = 0;while( fishCont < 101 ){ bait='bait1' if( fishCont === 100 ){ bait='bait3' } ; cont++; if(cont>50000)break;}";
+                          
+            treatedCode = treatedCode.replaceAll("fishCont", "fishCont.length");
+            treatedCode = treatedCode.replaceAll("bait='bait1'", "getSalmon();");
+            treatedCode = treatedCode.replaceAll("bait = 'bait1'", "getSalmon();");
+            treatedCode = treatedCode.replaceAll("bait='bait3'", "getLegendarySalmon();");
+            treatedCode = treatedCode.replaceAll("bait = 'bait3'", "getLegendarySalmon();");
 
+            console.log(treatedCode)
+            try {
+                eval(treatedCode);
+            } catch (error) { }
+
+            function getSalmon() {
+                fishCont.push("salmon");
+            }
+
+            function getLegendarySalmon() {
+                fishCont.push("LegendarySalmon");
+            }
+
+            if (fishCont.length === 101 &&
+                fishCont.filter(fish => fish === "salmon").length === 100 &&
+                fishCont[fishCont.length - 1] === "LegendarySalmon"){
+                    return true;
+                }
+
+            return false;
+
+        },
 
     };
 
@@ -336,6 +387,8 @@ class Level {
         new Level(6, Level.blocksLevel6, Level.LEVEL_VALIDATORS["level6"], 10),
         new Level(7, Level.blocksLevel7, Level.LEVEL_VALIDATORS["level7"], 20),
         new Level(8, Level.blocksLevel8, Level.LEVEL_VALIDATORS["level8"], 20),
+        new Level(9, Level.blocksLevel8, Level.LEVEL_VALIDATORS["level8"], 20),
+        new Level(10, Level.blocksLevel10, Level.LEVEL_VALIDATORS["level10"], 14),
     ]
 
     static levelCurrentState = {}

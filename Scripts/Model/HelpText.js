@@ -13,6 +13,7 @@ let levelsHelpsTexts = {
     7: getLevel7HelpTexts(),
     8: getLevel8HelpTexts(),
     9: getLevel4HelpTexts(),
+    10: getLevel10HelpTexts(),
 }
 
 function setCurrentText(text) {
@@ -65,7 +66,7 @@ export { setNextHelpText, setPreviousHelpText, setStartLevelText };
 
 function getLevel1HelpTexts() {
     let level1HelpsText = [
-        'Olá, bem-vindo ao Code Fishing! Sou o Josh e vou te ajudar durante o jogo!!',
+        'Olá, bem-vindo ao Code Fishing! Sou o Josh e vou lhe ajudar durante o jogo!!',
         'O objetivo do jogo é ajudar o programador e pescador Mike a realizar sua cota mensal de pesca utilizando lógica de programação.',
         'Na sua esquerda, você encontrará os blocos disponíveis para prosseguir para a próxima fase.(Para move-los basta clicar, segurar e arrastar)',
         'Logo abaixo de mim, tem sua barra de utilitários com alguns botões e abaixo dela o local onde você devera montar a lógica que permitira Mike pescar o que deseja. Arrastando os blocos para lá',
@@ -158,11 +159,20 @@ function getLevel7HelpTexts() {
     return level7HelpsText;
 }
 function getLevel8HelpTexts() {
-    let level7HelpsText = [
+    let level8HelpsText = [
         'Hoje, Mike pediu uma ajuda um pouco diferente a você. Ele ira pescar um peixe qualquer por conta própria (Não precisa que você use uma função). Porem, ele quer um peixe que tenha no mínimo 7 quilos e também tenha menos de 10 quilos (não pode ter exatamente 10 quilos). O que ele quer, é que você monte um código que valide se o peixe que ele pescar é o peixe desejado.',
         'Para isso, você tera que criar uma condicional, e dependendo do peso do peixe dele, atribuir à variável “Peixe desejado pescado” o valor verdadeiro ou falso.(Caso precise, dicas no próximo dialogo)',
         'Dica1: o comparador “<” exclui o valor que você comprar. Exemplo: 10 <(Menor) 10 - Falso. Porém, temos que 10 <= (Menor ou igual) 10 - Verdadeiro <br>Dica2: Você tera que usar o operador “OU” nesse nível.',
     ];
 
-    return level7HelpsText;
+    return level8HelpsText;
+}
+function getLevel10HelpTexts() {
+    let level10HelpsText = [
+        'Parabéns, você chegou ao último nível do Code Fish. Agora é hora de mostrar que você entendeu os fundamentos da programação e consegue pescar o Salmão Lendário.',
+        'Nesse nível, não haverá dicas. E a lógica para pescar utiliza todos os 4 aspectos aprendidos no jogo. Vou te passar as instruções para pescar o Lendário. Boa Sorte!!',
+        'O Salmão Lendário tem um comportamento muito específico. Ele só aparece no lago quando 100 salmões forem pescados, após isso ele deve ser o próximo peixe a ser pescado, porém, ele só mordera a isca caso a mesma seja a rara “Silver FrogFish”. Boa pescaria!!',
+    ];
+
+    return level10HelpsText;
 }
