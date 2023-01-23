@@ -1,6 +1,7 @@
 import { Level } from "./Level.js";
 import { View } from "../View.js";
 import { Block } from "./Block.js";
+import { Background } from "./Background.js";
 import { setNextHelpText,setPreviousHelpText } from "./HelpText.js";
 import { Achievements } from "./Achievements.js";
 
@@ -84,7 +85,7 @@ const BUTTONS_FUNCTIONS = {
     "returnMainMenu": () => {
         location.href = "index.html"
     },
-    "executeCode": () => {
+    "executeCode": async () => {
         //Get all the blocksHolders of the selectedBlocks div
         const blocksHolders = document.querySelector('.selectedBlocks').children;
         let codeString = '';
@@ -97,6 +98,7 @@ const BUTTONS_FUNCTIONS = {
         }
 
         if (Level.LEVEL_VALIDATORS[Level.CURRENT_LEVEL_IDENTIFIER](Level.treatCodeString(codeString))) {
+            await Background.runSucessAnimation();
             alert("Sucesso");
 
             if(Level.IS_UNIQUE_PLAY === true){
@@ -108,7 +110,8 @@ const BUTTONS_FUNCTIONS = {
             Achievements.achievementUnlocked(Level.CURRENT_LEVEL);
             Level.startLevel(Level.CURRENT_LEVEL + 1);
         } else {
-            alert("Falha")
+            await Background.runFailAnimation();
+            alert("Mike não conseguiu pescar :( Verifique a sua lógica!");
         }
     },
     "restartLevel": () => {

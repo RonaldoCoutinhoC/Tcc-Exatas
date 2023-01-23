@@ -16,7 +16,28 @@ let levelsHelpsTexts = {
 }
 
 function setCurrentText(text) {
+    let currentLevel = Level.CURRENT_LEVEL;
     document.getElementById('helpTextHolder').innerHTML = text;
+
+    document.getElementById('dialogCounter').innerHTML = (currentTextIndex + 1) + "/" + levelsHelpsTexts[currentLevel].length
+    setImage()
+    
+    function setImage(){
+
+        if(isOdd(currentTextIndex) === true){
+            document.getElementById("explainerImg").setAttribute("src", "Assets/explainer2.png");
+        }else{
+            document.getElementById("explainerImg").setAttribute("src", "Assets/explainer.png");
+        }
+
+        function isOdd(number){
+            const result = number % 2;
+            if(result === 0){
+                return true;
+            }
+            return false;
+        }
+    }
 }
 
 function setStartLevelText() {

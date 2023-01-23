@@ -3,7 +3,7 @@ import { Block } from "./Block.js";
 import { View } from "../View.js";
 import { setStartLevelText } from "./HelpText.js";
 import { SaveController } from "./SaveController.js";
-
+import { Background } from "./Background.js";
 
 class Level {
 
@@ -379,7 +379,7 @@ class Level {
     static startLevel(levelIndex) {
 
         let level = Level.levels[levelIndex];
-        console.log
+        Background.setStarterBackground();
         level.setAvailableBlocksDiv();
         level.setSelectedBlocksDiv();
         Level.CURRENT_LEVEL = levelIndex;

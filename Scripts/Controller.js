@@ -14,7 +14,7 @@ function startGame(){
 
     }else{
         SaveController.loadGame();
-        prepareAndLoadGame(Level.CURRENT_LEVEL);
+        prepareAndLoadGame(1)//Level.CURRENT_LEVEL);
     }
 
     function prepareAndLoadGame(LEVEL_INDEX){
