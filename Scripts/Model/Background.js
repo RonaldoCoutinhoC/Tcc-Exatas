@@ -3,7 +3,7 @@ import { Level } from "./Level.js";
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 class Background {
-    constructor() { }
+    constructor() {}
 
     static BACKGROUNDS = {
         "idle": "Assets/BackgroundIdle.png",
@@ -47,26 +47,28 @@ class Background {
     static async runFailAnimation() {
 
         let BACKGROUNDS = Background.getBackgrounds();
-
         let backgroundIMG = document.getElementById('gameBackgroundImg');
 
         backgroundIMG.setAttribute('src', BACKGROUNDS["fishing"]);
 
-
-        await delay(4000)
+        await delay(4000);
         backgroundIMG.setAttribute('src', BACKGROUNDS["fail"]);
-        await delay(2000)
+        await delay(2000);
+
     }
+
+
     static async runSucessAnimation() {
+
         let BACKGROUNDS = Background.getBackgrounds();
         let backgroundIMG = document.getElementById('gameBackgroundImg');
 
         backgroundIMG.setAttribute('src', BACKGROUNDS["fishing"]);
 
-
-        await delay(4000)
+        await delay(4000);
         backgroundIMG.setAttribute('src', BACKGROUNDS["sucess"]);
-        await delay(2000)
+        await delay(2000);
+
     }
 
 
