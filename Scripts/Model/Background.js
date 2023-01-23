@@ -58,7 +58,7 @@ class Background {
         await delay(2000)
     }
     static async runSucessAnimation() {
-
+        let BACKGROUNDS = Background.getBackgrounds();
         let backgroundIMG = document.getElementById('gameBackgroundImg');
 
         backgroundIMG.setAttribute('src', BACKGROUNDS["fishing"]);
