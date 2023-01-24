@@ -33,7 +33,7 @@ class Button {
     ]
 
     getButtonHtml() {
-        return '<div class="toolBarButton ' + this.className + '">' +
+        return '<div class="toolBarButton ' + this.className + ' " >' +
             '<span class="tooltiptext">' + this.tooltipText + '</span>' +
             '<i class="' + this.iconHTMLClasses + '""></i>' +
             '</div>';
@@ -87,6 +87,8 @@ const BUTTONS_FUNCTIONS = {
         location.href = "index.html"
     },
     "executeCode": async () => {
+        
+        hideButtons();
         //Get all the blocksHolders of the selectedBlocks div
         const blocksHolders = document.querySelector('.selectedBlocks').children;
         let codeString = '';
@@ -117,12 +119,28 @@ const BUTTONS_FUNCTIONS = {
                 }, 15000);
                 
             }
-
+            showButtons()
             Level.startLevel(Level.CURRENT_LEVEL + 1);
         } else {
             await Background.runFailAnimation();
+            showButtons()
             alert("Mike não conseguiu pescar :( Verifique a sua lógica!");
         }
+
+        function hideButtons(){
+            document.querySelector('.executeCode').classList.add("hidden");
+            document.querySelector('.createNewFunction').classList.add("hidden");
+            document.querySelector('.restartLevel').classList.add("hidden");
+            document.querySelector('.returnMainMenu').classList.add("hidden");
+        }
+
+        function showButtons(){
+            document.querySelector('.executeCode').classList.remove("hidden");
+            document.querySelector('.createNewFunction').classList.remove("hidden");
+            document.querySelector('.restartLevel').classList.remove("hidden");
+            document.querySelector('.returnMainMenu').classList.remove("hidden");
+        }
+
     },
     "restartLevel": () => {
         Level.startLevel(Level.CURRENT_LEVEL);
@@ -201,6 +219,11 @@ const BUTTONS_FUNCTIONS = {
         Level.saveLevelCurrentState();
         BUTTONS_FUNCTIONS["returnToGame"]();
         Button.setBlockButtonFunction('duplicateFunction');
+        Button.setBlockButtonFunction('deleteFunction');
+    },
+    "deleteFunction": (event) =>{
+        let parentElement = event.srcElement.parentElement.parentElement;
+        parentElement.remove();
     },
     "nextHelpText": () => {
         setNextHelpText();
@@ -215,3 +238,4 @@ export { Button };
 function teste() {//TO DELETE
     alert("Nenhuma função para o botão selecionado!!!")
 }
+

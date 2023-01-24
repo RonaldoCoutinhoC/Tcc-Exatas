@@ -66,7 +66,7 @@ class Block{
         return'<div class="blocksHolder dropzone">' +
         '<span class="block ' + this.htmlClass +
         '" draggable="true" style="background-color:' + this.color + ';"' +
-        '><i class="blocksButtons duplicateFunction fa-regular fa-clone"></i><p class="notSelectable">' + this.name + '</p></span>' +
+        '><i class="blocksButtons duplicateFunction fa-regular fa-clone"></i><i class="blocksButtons blocksButtons2  deleteFunction fa-solid fa-trash-can"></i><p class="notSelectable">' + this.name + '</p></span>' +
         '</div>';   
     }
 

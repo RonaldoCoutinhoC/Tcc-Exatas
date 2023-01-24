@@ -56,18 +56,27 @@
 }
 
 .blocksButtons {
-    border: 5px solid;
-    border-color: rgb(0, 0, 0);
-    color: white;
+    border: 3px solid;
+    border-color: white;
+    text-align: center;
+    /* color: white; */
     border-radius: 5px;
-    background-color: rgb(0, 0, 0);
+    /* background-color: rgb(0, 0, 0); */
+    background-color: white;
     position: absolute;
-    transform: translate(48px, -21px);
+    transform: translate(15px, -29px);
     z-index: 9;
 }
 
 .blocksButtons:hover{
-    transform: translate(48px, -21px) scale(1.1);
+    transform: translate(15px, -29px) scale(1.1);
+}
+.blocksButtons2 {
+    transform: translate(40px, -29px) !important;
+}
+
+.blocksButtons2:hover{
+    transform: translate(40px, -29px) scale(1.1) !important;
 }
 
 

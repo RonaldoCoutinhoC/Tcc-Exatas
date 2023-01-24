@@ -30,29 +30,29 @@ export class Achievements {
             "description": "Finalize os níveis de tutoriais!"
         },
         5: {
-            "text": "A definir!",
+            "text": "Indecisão!",
             "unlocked": false,
-            "description": "A definir"
+            "description": "Ajude Mike a Decidir!"
         },
         6: {
-            "text": "A definir!",
+            "text": "Pensando fora do mar!",
             "unlocked": false,
-            "description": "A definir"
+            "description": "Use o operador 'OU'!"
         },
         7: {
-            "text": "A definir!",
+            "text": "Só Salmões!",
             "unlocked": false,
-            "description": "A definir!"
+            "description": "Pesque somente salmões!"
         },
         8: {
-            "text": "A definir!",
+            "text": "V ou F?!",
             "unlocked": false,
-            "description": "A definir!"
+            "description": "Crie uma verdade!"
         },
         9: {
-            "text": "A definir!",
+            "text": "A Sequência!",
             "unlocked": false,
-            "description": "A definir!"
+            "description": "Pesque um salmão depois uma tilápia!"
         },
         10: {
             "text": "O Poderoso!",

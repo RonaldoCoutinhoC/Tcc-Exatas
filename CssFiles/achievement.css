@@ -31,8 +31,9 @@ body {
     right: 5vw;
     color: #fff;
     font-family: 'Microsoft Sans Serif', sans-serif;
-    font-size: 1.4vw;
-    white-space: nowrap
+    font-size: 1.2vw;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .upperTextAchievement{

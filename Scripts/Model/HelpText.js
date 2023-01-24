@@ -12,7 +12,7 @@ let levelsHelpsTexts = {
     6: getLevel6HelpTexts(),
     7: getLevel7HelpTexts(),
     8: getLevel8HelpTexts(),
-    9: getLevel4HelpTexts(),
+    9: getLevel9HelpTexts(),
     10: getLevel10HelpTexts(),
 }
 
@@ -166,6 +166,15 @@ function getLevel8HelpTexts() {
     ];
 
     return level8HelpsText;
+}
+function getLevel9HelpTexts() {
+    let level9HelpsText = [
+        'Hoje, Mike quer pescar 10 peixes. Porém, ele está com um desafio pessoal. Mike vai pescar peixes aleatoriamente, contudo, caso ele consiga um salmão logo em seguida deve pescar uma tilápia. Consegue garantir que Mike complete seu desafio?',
+        'Lembre-se, para pescar uma tilápia, a isca deve ser um SilverFish.(Dica no próximo dialogo)',
+        'Dica: Para esse nível você deve usar criar uma função para pescar a tilápia, senão, não haverá espaço para todos os blocos.',
+    ];
+
+    return level9HelpsText;
 }
 function getLevel10HelpTexts() {
     let level10HelpsText = [
