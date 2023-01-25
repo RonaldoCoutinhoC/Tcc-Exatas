@@ -68,7 +68,7 @@ function getLevel1HelpTexts() {
     let level1HelpsText = [
         'Olá, bem-vindo ao Code Fishing! Sou o Josh e vou lhe ajudar durante o jogo!!',
         'O objetivo do jogo é ajudar o programador e pescador Mike a realizar sua cota mensal de pesca utilizando lógica de programação.',
-        'Na sua esquerda, você encontrará os blocos disponíveis para prosseguir para a próxima fase.(Para move-los basta clicar, segurar e arrastar)',
+        'Na sua esquerda, você encontrará os blocos disponíveis para prosseguir para a próxima fase.(Para move-los basta clicar, segurar e arrastar. Ou então você também pode dar um click duplo)',
         'Logo abaixo de mim, tem sua barra de utilitários com alguns botões e abaixo dela o local onde você devera montar a lógica que permitira Mike pescar o que deseja. Arrastando os blocos para lá',
         'Passe o mouse por cima de cada botão na barra de utilitários para entender suas funções',
         'Os 4 primeiros níveis serão como um tutorial, bem simples, mas importantes para aprender os fundamentos do jogo e da programação. Preste bastante atenção!',

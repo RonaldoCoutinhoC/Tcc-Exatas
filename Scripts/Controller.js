@@ -1,10 +1,10 @@
 import { Button } from "./Model/Button.js";
 import { Level } from "./Model/Level.js";
 import { SaveController } from "./Model/SaveController.js";
+import { View } from "./View.js";
+function startGame() {
 
-function startGame(){
-
-    if(isUniquePlay()){
+    if (isUniquePlay()) {
         console.log("Is Unique Play")
         const urlParams = new URLSearchParams(window.location.search);
         const levelIndex = urlParams.get('uniquePlay');
@@ -12,31 +12,34 @@ function startGame(){
 
         prepareAndLoadGame(levelIndex);
 
-    }else{
+    } else {
         SaveController.loadGame();
         prepareAndLoadGame(Level.CURRENT_LEVEL);
     }
 
-    function prepareAndLoadGame(LEVEL_INDEX){
+    
+
+    function prepareAndLoadGame(LEVEL_INDEX) {
         Level.startLevel(LEVEL_INDEX);
         Button.setButtons(Button.MAIN_MENU_BUTTONS);
         Button.setHelperJoshButtons(Button.HELPER_JOSH_BUTTONS);
     }
-    
+
 }
 
-
-function isUniquePlay(){
+function isUniquePlay() {
     const urlParams = new URLSearchParams(window.location.search);
     const param = urlParams.get('uniquePlay');
 
-    if(param){
+    if (param) {
         return true;
-    }else{
+    } else {
         return false;
     }
-    
+
 }
+
+
 
 export { startGame };
 

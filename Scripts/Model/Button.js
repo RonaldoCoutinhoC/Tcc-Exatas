@@ -102,7 +102,7 @@ const BUTTONS_FUNCTIONS = {
 
         if (Level.LEVEL_VALIDATORS[Level.CURRENT_LEVEL_IDENTIFIER](Level.treatCodeString(codeString))) {
             await Background.runSucessAnimation();
-            alert("Sucesso");
+            alert("Muito bem!! Mike pescou o que queria!");
 
             if(Level.IS_UNIQUE_PLAY === true){
                 Level.IS_UNIQUE_PLAY === false;
@@ -163,7 +163,7 @@ const BUTTONS_FUNCTIONS = {
         let level = Level.getCurrentLevel();
         level.setAvailableBlocksDiv();
         View.startDragAndDropControl();
-
+        View.startDoubleClickUtils();
     },
     "returnToGame": () => {
         Button.setButtons(Button.MAIN_MENU_BUTTONS);
@@ -223,7 +223,12 @@ const BUTTONS_FUNCTIONS = {
     },
     "deleteFunction": (event) =>{
         let parentElement = event.srcElement.parentElement.parentElement;
-        parentElement.remove();
+        
+        if(parentElement.parentElement.classList[0] === "selectedBlocks"){
+            alert("Você não pode excluir funções que estão sendo usadas!")
+        }else{
+            parentElement.remove();
+        }
     },
     "nextHelpText": () => {
         setNextHelpText();

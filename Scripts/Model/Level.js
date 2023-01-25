@@ -196,7 +196,6 @@ class Level {
         },
         level2: (treatedCode) => {
             let bait;
-            console.log(treatedCode);
             if (treatedCode === "bait='bait1' bait='bait1' bait='bait1' ") {
                 return true;
             }
@@ -475,6 +474,7 @@ class Level {
         document.querySelector('.availableBlocks').innerHTML = Level.levelCurrentState["availableBlocks"];
         document.querySelector('.selectedBlocks').innerHTML = Level.levelCurrentState["selectedBlocks"];
         View.startDragAndDropControl();
+        View.startDoubleClickUtils();
     }
 
     static treatCodeString(string) {
@@ -513,6 +513,7 @@ class Level {
         }
         Level.CURRENT_LEVEL_IDENTIFIER = 'level' + levelIndex;
         View.startDragAndDropControl();
+        View.startDoubleClickUtils();
         Level.saveLevelCurrentState();
 
         setStartLevelText();

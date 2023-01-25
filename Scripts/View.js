@@ -51,6 +51,53 @@ class View {
         
     }
     
+    static startDoubleClickUtils() {
+        let blocks = document.querySelectorAll(".block");
+    
+        blocks.forEach(block => {
+            block.addEventListener('dblclick', (event) => {
+    
+                let blockClicked = event.path.find(element => element.tagName === "SPAN");
+    
+    
+                if(blockClicked.parentElement.parentElement.classList[0] === "selectedBlocks"){
+                    changeBlockPosition(blockClicked, "availableBlocks");
+                }else if(blockClicked.parentElement.parentElement.classList[0] === "availableBlocks"){
+                    changeBlockPosition(blockClicked, "selectedBlocks");
+                }
+                
+                
+            });
+        });
+    
+    
+        function changeBlockPosition(block, divToMove){
+    
+            
+                let holders = document.querySelectorAll(".blocksHolder");
+                let selectedBlocksHolders = [];
+        
+                holders.forEach(holder=>{
+                    if(holder.parentElement.classList[0] === divToMove){
+                        selectedBlocksHolders.push(holder);
+                    }
+                });
+        
+                let changed = false;
+                selectedBlocksHolders.forEach(holder=>{
+                    if(holder.children.length === 0 && changed === false){
+                        holder.appendChild(block);
+                        changed = true;
+                    }
+                });
+        
+            
+        }
+    
+        
+    
+    }
+
 }
 
 export { View };
