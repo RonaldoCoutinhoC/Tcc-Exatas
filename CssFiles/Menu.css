@@ -22,7 +22,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 .menuHolder {
@@ -70,7 +70,8 @@
     border-radius: 5px;
     background-color: rgb(0 223 255 / 25%);
     color: #ffffff !important;
-    font-size: 2vw;
+    font-size: 1.8em;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,3 +96,13 @@ a:active { text-decoration: none; }
     transform: scale(1.2);
 }
 
+.credits{
+    position: sticky;
+    width: 100%;
+    left: 0;
+}
+
+.creditsText{
+    padding-left: 1vw;
+    font-size: 1.2em;
+}
