@@ -192,7 +192,21 @@ const BUTTONS_FUNCTIONS = {
 
         let functionName = prompt("Nome da Função: ");
         if(!functionName){
+            alert("Necessário informar um nome para a função!");
             return;
+        }
+
+        if(functionName.length > 18){
+            alert("O nome da função não deve passar de 18 caracteres!Dê um nome simples e intuitivo!");
+            return;
+        }
+
+        if((functionName.search(" ") === -1 || functionName.search(" ") > 7) && functionName.length > 7){
+            let auxFuntionName = functionName.split('');
+            auxFuntionName.splice(7,0," - ");
+            
+            auxFuntionName = auxFuntionName.join('');
+            functionName = auxFuntionName;
         }
 
         if(functionName.search(" ")!== -1){
@@ -209,6 +223,7 @@ const BUTTONS_FUNCTIONS = {
         BUTTONS_FUNCTIONS["returnToGame"]();
         
         Button.setButtonFunction('duplicateFunction');
+        Button.setBlockButtonFunction('deleteFunction');
     },
     "duplicateFunction": (event) =>{
         let parentElement = event.srcElement.parentElement;

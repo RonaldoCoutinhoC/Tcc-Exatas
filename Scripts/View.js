@@ -56,8 +56,8 @@ class View {
     
         blocks.forEach(block => {
             block.addEventListener('dblclick', (event) => {
-    
-                let blockClicked = event.path.find(element => element.tagName === "SPAN");
+
+                let blockClicked = event.composedPath().find(element => element.tagName === "SPAN");
     
     
                 if(blockClicked.parentElement.parentElement.classList[0] === "selectedBlocks"){
