@@ -503,10 +503,11 @@ class Level {
     static startLevel(levelIndex) {
 
         let level = Level.levels[levelIndex];
-        Background.setStarterBackground();
+        
         level.setAvailableBlocksDiv();
         level.setSelectedBlocksDiv();
         Level.CURRENT_LEVEL = levelIndex;
+        Background.setStarterBackground();
         if (Level.IS_UNIQUE_PLAY === false) {
             console.log("Saved Game")
             SaveController.saveGame(levelIndex);

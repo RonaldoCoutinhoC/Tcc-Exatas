@@ -6,10 +6,10 @@ class Background {
     constructor() {}
 
     static BACKGROUNDS = {
-        "idle": "Assets/BackgroundIdle.png",
-        "fail": "Assets/BackgroundFail.png",
-        "fishing": "Assets/BackgroundFishing.png",
-        "sucess": "Assets/BackgroundSuccess.png",
+        "idle": "Assets/BackgroundIdle2.png",
+        "fail": "Assets/BackgroundFail2.png",
+        "fishing": "Assets/BackgroundFishing2.png",
+        "sucess": "Assets/BackgroundSuccess2.png",
     }
 
     static EVEN_BACKGROUNDS = {
