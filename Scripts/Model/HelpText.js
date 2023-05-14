@@ -89,7 +89,8 @@ function getLevel2HelpTexts() {
         'Imagine que para conseguir pescar um salmão, as etapas que o pescador Mike tem que seguir é sempre atribuir o valor “FrogFish” a variável “ISCA”, da forma que você fez no nível anterior. (Considere que a variável “ISCA” sempre perde seu valor após um salmão ser pescado, pois o peixe come a isca.)',
         'Para conseguir pescar dois salmões, você teria que fazer “Isca recebe FrogFish” duas vezes certo? Isso seria fácil, mas conforme aumentamos a dificuldades e a quantidade das ações seria um pouco cansativo repeti-las várias e várias vezes.',
         'Por isso na programação nós temos o conceito de funções. Você cria uma função, define as ações que ela deve fazer e sempre que precisar dessa sequência de ações você simplesmente chama a função.',
-        'Vamos então criar uma função para pescar um salmão. Para criar uma função clique no ícone de “+” na barra de botões logo abaixo. Coloque os blocos necessários para pescar um salmão e clique no ícone de salvar. Você pode dar o nome que quiser para sua função, mas sugiro um nome como “Pescar Salmão” para facilitar.',
+        'Vamos então criar uma função para pescar um salmão. Para criar uma função clique no ícone de “+” na barra de botões logo abaixo.',
+        'Após isso coloque os blocos necessários para pescar um salmão e clique no ícone de salvar. Você pode dar o nome que quiser para sua função, mas sugiro um nome como “Pescar Salmão” para facilitar.',
         'Sempre que houver um bloco de função no jogo você o verá com um “( )” na sua frente, isso é para familiariza-lo com a escrita de funções, normalmente esses parenteses servem para identificar a chamada de funções e passar parâmetros (Mas isso fica para outro momento).',
         'Após sua função criada você vera um novo bloco com o nome que você definiu, há também um botão no bloco, ele serve para você duplicar o bloco e chamá-lo quantas vezes quiser.',
         'Nesse nível o seu objetivo é ajudar Mike a pescar 3 salmões. Como pode ver, os espaços disponíveis e os blocos não permitem que você repita o código do nível 1 varias vezes. Então tera que usar funções. Boa sorte!',
@@ -104,6 +105,8 @@ function getLevel3HelpTexts() {
         'Imagine que você queira ir para uma praia, mas o pacote completo com viagem e estadia custa 500 reais. Se seu dinheiro for maior ou igual a 500 reais, então, você vai para a praia, senão, você fica em casa vendo uma série mesmo. Essa situação que descrevi agora nada mais é que uma condicional.',
         'SE uma condição qualquer é verdadeira, ENTÃO algo acontece, SENÃO ENTÃO outra coisa acontece. Simples não é?',
         'Para criar uma condição, perceba que usamos “dinheiro for maior ou igual a 500 reais”. O “maior ou igual” é um operador matemático chamado de “operador de comparação”. São de extrema importância nas condicionais, pois praticamente sempre será usado.',
+        'Os blocos "FIM SE" e "FIM SENÃO" servem para identificar o fim de uma condicional, por exemplo, "SE verdade ENTÃO faça x FIM SE"',
+        'Caso não utilizássemos esses blocos não teríamos como saber o fim de uma ação de uma condicional',
         'Esse nível pode parecer um pouco mais assustador pela quantidade de blocos que você pode utilizar, mas não se preocupe. Caso necessário leia a explicação de condicionais novamente que vai ser simples.',
         'Para montar suas condicionais sempre utilize a seguinte lógica: “SE CONDIÇÃO ENTÃO XXXX FIM SE SENÃO ENTÃO XXXX FIM SENÃO”. Sempre coloque o fim se e o fim senão, pois eles delimitam aonde as condicionais acabam',
         'Para esse nível, Mike vai pegar uma isca aleatória da sua caixa de iscas e pescar. Para não desperdiçar o FrogFish (uma isca cara e rara) precisamos que caso a isca aleatória seja o FrogFish ele deve aproveitar e pescar um salmão. Caso seja outra isca, ele deve pescar qualquer peixe.',
@@ -131,19 +134,23 @@ function getLevel5HelpTexts() {
         'Nesse nível, você tera que usar condicionais, atribuição de valores a variáveis e funções. Todos simultaneamente.',
         'Hoje, Mike está indeciso sobre o que quer pescar. Ele disse que vai decidir na hora, porem você deve ajudá-lo a pescar de acordo com sua decisão. Sua dúvida é se vai pescar uma tilápia para variar ou se vai com o salmão mesmo.',
         'Para esse nível, você deve montar uma condicional que, caso o Mike queira o salmão, você deve utilizar a lógica de pescar salmão (Atribuir o valor certo à isca). O mesmo vale para a Tilápia.(Obs: tilápias são pescadas quando utilizamos a isca SilverFish!).',
-        'Dica 1: Mike com certeza irá escolher entre um dos dois peixes para pescar hoje, você deve garantir que independentemente da escolha, ele consiga um peixe. <br>Dica 2: não há espaço nem blocos o suficiente para garantir que ele pegue ambos os peixes. A não ser que você utilize funções, sendo que os blocos para montar as funções não retiram blocos dos disponíveis. Monte uma função para pescar cada peixe (Pescar Salmão e Pescar Tilápia) ',
+        'Dica 1: Mike com certeza irá escolher entre um dos dois peixes para pescar hoje, você deve garantir que independentemente da escolha, ele consiga um peixe.',
+        'Dica 2: não há espaço nem blocos o suficiente para garantir que ele pegue ambos os peixes. A não ser que você utilize funções, sendo que os blocos para montar as funções não retiram blocos dos disponíveis. Monte uma função para pescar cada peixe (Pescar Salmão e Pescar Tilápia) ',
     ];
 
     return level5HelpsText;
 }
 function getLevel6HelpTexts() {
     let level6HelpsText = [
-        'Para esse nível, é necessário que você complemente seu conhecimento em como as condições são criadas. Caso eu queira usar mais de uma condição simultaneamente nós temos dois operadores que fazem isso. O “E” e o “OU”. Por exemplo, “SE CONDIÇÃO1 E CONDIÇÃO 2 ENTÃO XXXX”',
+        'Para esse nível, é necessário que você complemente seu conhecimento em como as condições são criadas.',
+        'Caso eu queira usar mais de uma condição simultaneamente nós temos dois operadores que fazem isso. O “E” e o “OU”. Por exemplo, “SE CONDIÇÃO1 E CONDIÇÃO 2 ENTÃO XXXX”',
         'Nesse caso é necessário que ambas as condições sejam verdadeiras para continuar (O operador “E” é escrito normalmente como “&&”).',
         'Temos também o operador “OU”, por exemplo, “SE CONDIÇÃO1 OU CONDIÇÃO2 ENTÃO XXXX”. Nesse caso, basta que apenas uma das condições sejam verdadeiras. (O operador “OU” é escrito normalmente como “||”).',
-        'Hoje, Mike veio com um objetivo muito claro em mente. Pescar um salmão que tenha ao menos 10 quilogramas. Ele irá pescar quantos peixes forem precisos antes de ir embora. É seu dever montar a lógica que o ajude a concluir tal objetivo.(Obs: Nesse nível você tem a função “Pescar ()” que irá pescar um peixe aleatório de peso aleatório)',
+        'Hoje, Mike veio com um objetivo muito claro em mente. Pescar um salmão que tenha ao menos 10 quilogramas. Ele irá pescar quantos peixes forem precisos antes de ir embora.',
+        'É seu dever montar a lógica que o ajude a concluir tal objetivo.(Obs: Nesse nível você tem a função “Pescar ()” que irá pescar um peixe aleatório de peso aleatório)',
         'Para esse nível, você tera que usar uma lógica não tão trivial. Caso queira algumas dicas, basta seguir para o próximo dialogo. (Mas tente resolver primeiro. As informações dos diálogos anteriores são suficientes para resolver o nível).',
-        'Dica1: Para esse nível, será necessário que as condições não sejam o que desejamos até o momento correto. Por exemplo, imagine que queremos o número 1000, porem o número começa com 1, assim temos “ENQUANTO número < 1000 FAÇA ADICIONAR 1 NO NUMERO() FIM ENQUANTO” (Obs: existe mais uma dica, caso precise use-a)',
+        'Dica1: Para esse nível, será necessário que as condições não sejam o que desejamos até o momento correto. Por exemplo, imagine que queremos o número 1000, porém começamos a contar a partir do número 1 (continua) ',
+        'assim temos “ENQUANTO número < 1000 FAÇA ADICIONAR 1 NO NUMERO() FIM ENQUANTO” (Obs: existe mais uma dica, caso precise use-a)',
         'Dica2: Em uma repetição “enquanto”, podemos utilizar um “OU” para garantir que só sairemos da repetição, quando ambas as condições sejam falsas, ou seja, podemos definir uma condição que queremos e “invertê-la” dentro do enquanto.',
     ];
 
@@ -152,7 +159,8 @@ function getLevel6HelpTexts() {
 function getLevel7HelpTexts() {
     let level7HelpsText = [
         'Hoje, Mike quer levar para casa pelo menos 10 salmões. Sendo que, outros peixes ele vai soltar. Ajude-o com essa lógica!',
-        'Nesse nível, você tem a função “Pescar ()”, que pesca um peixe aleatório, podendo este ser um salmão ou não. Toda vez que a função pescar é chamada, ela aumenta a quantidade de peixes pescados em 1. Porém, também temos a função “Soltar Peixe ()” que diminui a quantidade de peixes pescados em 1, sendo que ela solta o último peixe pescado. (Novamente você tem uma dica no próximo dialogo, mas tente resolver sem ela!)',
+        'Nesse nível, você tem a função “Pescar ()”, que pesca um peixe aleatório, podendo este ser um salmão ou não.',
+        'Toda vez que a função pescar é chamada, ela aumenta a quantidade de peixes pescados em 1. Porém, também temos a função “Soltar Peixe ()” que diminui a quantidade de peixes pescados em 1, sendo que ela solta o último peixe pescado. (Novamente você tem uma dica no próximo dialogo, mas tente resolver sem ela!)',
         'Dica: Para esse nível, você tem que utilizar o “SE” dentro do “ENQUANTO” após usar a função “Pescar ()”',
     ];
 
@@ -160,7 +168,8 @@ function getLevel7HelpTexts() {
 }
 function getLevel8HelpTexts() {
     let level8HelpsText = [
-        'Hoje, Mike pediu uma ajuda um pouco diferente a você. Ele ira pescar um peixe qualquer por conta própria (Não precisa que você use uma função). Porem, ele quer um peixe que tenha no mínimo 7 quilos e também tenha menos de 10 quilos (não pode ter exatamente 10 quilos). O que ele quer, é que você monte um código que valide se o peixe que ele pescar é o peixe desejado.',
+        'Hoje, Mike pediu uma ajuda um pouco diferente a você. Ele ira pescar um peixe qualquer por conta própria (Não precisa que você use uma função). Porem, ele quer um peixe que tenha no mínimo 7 quilos e também tenha menos de 10 quilos (não pode ter exatamente 10 quilos).',
+        'O que ele quer, é que você monte um código que valide se o peixe que ele pescar é o peixe desejado.',
         'Para isso, você tera que criar uma condicional, e dependendo do peso do peixe dele, atribuir à variável “Peixe desejado pescado” o valor verdadeiro ou falso.(Caso precise, dicas no próximo dialogo)',
         'Dica1: o comparador “<” exclui o valor que você comprar. Exemplo: 10 <(Menor) 10 - Falso. Porém, temos que 10 <= (Menor ou igual) 10 - Verdadeiro <br>Dica2: Você tera que usar o operador “OU” nesse nível.',
     ];

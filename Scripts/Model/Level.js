@@ -503,7 +503,7 @@ class Level {
     static startLevel(levelIndex) {
 
         let level = Level.levels[levelIndex];
-        
+        document.getElementById('faseCounter').innerText = levelIndex + "/10"
         level.setAvailableBlocksDiv();
         level.setSelectedBlocksDiv();
         Level.CURRENT_LEVEL = levelIndex;

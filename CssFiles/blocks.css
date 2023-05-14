@@ -85,8 +85,15 @@
     user-select: none;
 }
 
-p {
+.blockText{
+    /* background-color: rgb(180, 103, 8); */
+    width: 5.2vw;
+    overflow: hidden;
+}
+
+.blockText p {
     /* background-color: bisque; */
-    /* width: 5vw; */
-    font-size: 0.7vw !important;
+
+    max-width: 100%;
+    word-wrap: break-word;
 }

@@ -9,10 +9,38 @@
     <link rel="stylesheet" href="CssFiles/utilsBar.css">
     <link rel="stylesheet" href="CssFiles/waveEffect.css">
     <link rel="stylesheet" href="CssFiles/achievement.css">
+    <link rel="stylesheet" href="CssFiles/popupTutorial.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </head>
 
 <body>
+    <audio id="dragSound">
+        <source src="Assets/Sounds/drag.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="sucessSound">
+        <source src="Assets/Sounds/success.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="failSound">
+        <source src="Assets/Sounds/fail.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="dropSound">
+        <source src="Assets/Sounds/drop.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="backgroundSound">
+        <source src="Assets/Sounds/background.mp3" type="audio/mpeg" loop>
+    </audio>
+    
     <div class="bodyBackgroud">
+        <div class="popup-container">
+            <div class="popup">
+                <div class="popupHeader">
+                    <h2>Tutorial</h2>
+                    <button class="close-btn fa-solid fa-xmark"></button>
+                </div>             
+                <img src="Assets/Tutorial1.png">
+            </div>
+        </div>
         <div class="sectionLeft">
             <div class="availableBlocks holder">
 
@@ -23,7 +51,8 @@
                 <div class="sectionRightUp_Left">
                     <div class="helper">
                         <div class="bubbleHolder">
-                            <div class="bubble bubble-bottom-left" id="helpTextHolder">
+                            <div class="bubble bubble-bottom-left">
+                                <p id="helpTextHolder"></p>
                             </div>
                         </div>
 
@@ -45,6 +74,7 @@
                         </span>
                     </div>
                     <div class="gameDisplay">
+                        <div class="faseCounter" id="faseCounter">1/10</div>
                         <img id="gameBackgroundImg" class="gameBackgroundImg" src="Assets/BackgroundIdle.png">
                     </div>
                 </div>
@@ -62,8 +92,19 @@
             </div>
         </div>
     </div>
+
     <script src="https://kit.fontawesome.com/22b2be0226.js" crossorigin="anonymous"></script>
     <script type="module" src="Scripts/main.js" defer>  </script>
+    <script>
+        playSound();
+        async function playSound(){
+            var sound = document.getElementById("backgroundSound");
+            sound.loop = true;
+            sound.play();
+            sound.volume = 0.2
+            
+        }
+    </script>
 </body>
 
 </html>

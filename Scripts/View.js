@@ -1,3 +1,5 @@
+
+
 class View {
     constructor(){
 
@@ -22,10 +24,16 @@ class View {
     
         function dragstart() {
             //In this contex "this" means the block because this function is called by the block in line 5
+            
+            var sound = document.getElementById("dragSound");
+            sound.play();
             this.classList.add('is-dragging');
         }
         
         function dragend() {
+            var sound = document.getElementById("dragSound");
+            sound.pause();
+            sound.currentTime = 0;
             this.classList.remove('is-dragging');
         }
         
@@ -58,7 +66,8 @@ class View {
             block.addEventListener('dblclick', (event) => {
 
                 let blockClicked = event.composedPath().find(element => element.tagName === "SPAN");
-    
+                playSound();
+                
     
                 if(blockClicked.parentElement.parentElement.classList[0] === "selectedBlocks"){
                     changeBlockPosition(blockClicked, "availableBlocks");
@@ -70,6 +79,15 @@ class View {
             });
         });
     
+        async function playSound(){
+            const delay = ms => new Promise(res => setTimeout(res, ms));
+            var sound = document.getElementById("dropSound");
+            sound.play();
+            await delay(500);
+            sound.pause();
+            sound.currentTime = 0;
+
+        }
     
         function changeBlockPosition(block, divToMove){
     
@@ -97,6 +115,8 @@ class View {
         
     
     }
+
+    
 
 }
 
